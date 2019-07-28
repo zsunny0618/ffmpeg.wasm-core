@@ -1,6 +1,9 @@
 #!/bin/bash
-docker pull gcc:9.1
+
+EM_SDK_TAG=sdk-tag-1.38.32-64bit
+
+docker pull trzeci/emscripten:$EM_SDK_TAG
 docker run -it \
-  -v $PWD:/usr/src \
-  gcc:9.1 \
-  sh -c 'cd /usr/src && ./configure --disable-x86asm && make -j4'
+  -v $PWD:/src \
+  trzeci/emscripten:$EM_SDK_TAG \
+  bash build-js.sh
