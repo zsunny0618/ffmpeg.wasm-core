@@ -40,8 +40,8 @@ build_js() {
 }
 
 main() {
-  #configure_js
-  #make_js
+  configure_js
+  make_js
   build_js
 }
 
