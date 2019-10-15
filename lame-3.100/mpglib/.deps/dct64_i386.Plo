@@ -1,0 +1,71 @@
+dct64_i386.lo: dct64_i386.c ../config.h dct64_i386.h common.h mpg123.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stdio.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/__config \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdio.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/features.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/alltypes.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/string.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/string.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/string.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/strings.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/signal.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/signal.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/math.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/math.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/math.h \
+  mpglib.h ../include/lame.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stddef.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stddef.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/stdarg.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdarg.h \
+  tabinit.h
+
+../config.h:
+
+dct64_i386.h:
+
+common.h:
+
+mpg123.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stdio.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/__config:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdio.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/features.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/alltypes.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/string.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/string.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/string.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/strings.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/signal.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/signal.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/math.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/math.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/math.h:
+
+mpglib.h:
+
+../include/lame.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stddef.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stddef.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/stdarg.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdarg.h:
+
+tabinit.h:

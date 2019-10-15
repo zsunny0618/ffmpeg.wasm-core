@@ -1,0 +1,162 @@
+util.lo: util.c ../config.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/float.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/__config \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/float.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/float.h \
+  ../include/lame.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stddef.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stddef.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/alltypes.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/stdarg.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdarg.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stdio.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdio.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/features.h \
+  machine.h version.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/assert.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stdlib.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/stdlib.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdlib.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/alloca.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/string.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/string.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/string.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/strings.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/math.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/math.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/math.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/limits.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/limits.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/limits.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/ctype.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/ctype.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/ctype.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/errno.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/errno.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/errno.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/fcntl.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/fcntl.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/sys/types.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/endian.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stdint.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdint.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/stdint.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/sys/select.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/compat/sys/stat.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/sys/stat.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/stat.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/inttypes.h \
+  /emsdk_portable/emscripten/tag-1.38.45/system/include/libc/inttypes.h \
+  encoder.h util.h l3side.h id3tag.h lame_global_flags.h tables.h
+
+../config.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/float.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/__config:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/float.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/float.h:
+
+../include/lame.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stddef.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stddef.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/alltypes.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/stdarg.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdarg.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stdio.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdio.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/features.h:
+
+machine.h:
+
+version.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/assert.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stdlib.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/stdlib.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdlib.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/alloca.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/string.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/string.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/string.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/strings.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/math.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/math.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/math.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/limits.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/limits.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/limits.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/ctype.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/ctype.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/ctype.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/errno.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/errno.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/errno.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/fcntl.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/fcntl.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/sys/types.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/endian.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/stdint.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/stdint.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/stdint.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/sys/select.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/compat/sys/stat.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/sys/stat.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/lib/libc/musl/arch/emscripten/bits/stat.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libcxx/inttypes.h:
+
+/emsdk_portable/emscripten/tag-1.38.45/system/include/libc/inttypes.h:
+
+encoder.h:
+
+util.h:
+
+l3side.h:
+
+id3tag.h:
+
+lame_global_flags.h:
+
+tables.h:
