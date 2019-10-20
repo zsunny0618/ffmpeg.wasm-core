@@ -24,7 +24,6 @@ make_ffmpeg() {
 
 build_ffmpegjs() {
   emcc \
-    -I. \
     -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample \
     -Qunused-arguments -Oz \
     -o javascript/ffmpeg-core.js fftools/ffmpeg_opt.o fftools/ffmpeg_filter.o fftools/ffmpeg_hw.o fftools/cmdutils.o fftools/ffmpeg.o \
