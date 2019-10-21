@@ -4,6 +4,17 @@ FFmpeg README
 FFmpeg is a collection of libraries and tools to process multimedia content
 such as audio, video, subtitles and related metadata.
 
+This repository is a fork of FFmpeg to build ffmpeg-core.js, you can find build scripts
+like **build-with-docker.sh** and **build-js.sh**
+
+To build ffmpeg-core.js, install Docker and execute:
+
+```bash
+$ bash build-with-docker.sh
+```
+
+You can find output file in **javascript/** directory.
+
 ## Libraries
 
 * `libavcodec` provides implementation of a wider range of codecs.
