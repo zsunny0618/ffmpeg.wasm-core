@@ -1,0 +1,3 @@
+[submodule "third_party/x264"]
+	path = third_party/x264
+	url = https://github.com/ffmpegjs/x264
