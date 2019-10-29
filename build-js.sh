@@ -49,6 +49,7 @@ build_ffmpegjs() {
     -Qunused-arguments -Oz \
     -o javascript/ffmpeg-core.js fftools/ffmpeg_opt.o fftools/ffmpeg_filter.o fftools/ffmpeg_hw.o fftools/cmdutils.o fftools/ffmpeg.o \
     -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 \
+    --closure 1 \
     -s USE_SDL=2 \
     -s MODULARIZE=1 \
     -s SINGLE_FILE=1 \
@@ -59,9 +60,9 @@ build_ffmpegjs() {
 }
 
 main() {
-  build_x264
-  configure_ffmpeg
-  make_ffmpeg
+  #build_x264
+  #configure_ffmpeg
+  #make_ffmpeg
   build_ffmpegjs
 }
 
