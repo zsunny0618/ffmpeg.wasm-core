@@ -19,3 +19,7 @@ jobs:
     - name: Build ffmpeg-core.js
       run: |
         bash ./build-with-docker.sh
+    - uses: actions/upload-artifact@master
+      with:
+        name: ffmpeg-core
+        path: dist

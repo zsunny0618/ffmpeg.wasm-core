@@ -13,6 +13,6 @@ To build ffmpeg-core.js, install Docker and execute:
 $ bash build-with-docker.sh
 ```
 
-It outputs ffmpeg-core.js in **javascript/** directory.
+It outputs ffmpeg-core.js in **dist/** directory.
 
 More details about FFmpeg: https://github.com/FFmpeg/FFmpeg
