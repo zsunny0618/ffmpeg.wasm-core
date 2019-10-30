@@ -51,6 +51,7 @@ build_ffmpegjs() {
     -o dist/ffmpeg-core.js fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
     -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 \
     --closure 1 \
+    --pre-js javascript/prepend.js \
     -s USE_SDL=2 \
     -s MODULARIZE=1 \
     -s SINGLE_FILE=1 \
@@ -61,9 +62,9 @@ build_ffmpegjs() {
 }
 
 main() {
-  build_x264
-  configure_ffmpeg
-  make_ffmpeg
+  #build_x264
+  #configure_ffmpeg
+  #make_ffmpeg
   build_ffmpegjs
 }
 
