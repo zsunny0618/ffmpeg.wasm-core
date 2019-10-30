@@ -13,11 +13,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
-    - name: List content of repository
-      run: ls
-    - name: Check docker info
+    - name: Update submodules
       run: |
-        docker info
+        git submodule update --init --recursive
     - name: Build ffmpeg-core.js
       run: |
         bash ./build-with-docker.sh
