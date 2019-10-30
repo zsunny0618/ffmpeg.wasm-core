@@ -60,9 +60,9 @@ build_ffmpegjs() {
 }
 
 main() {
-  #build_x264
-  #configure_ffmpeg
-  #make_ffmpeg
+  build_x264
+  configure_ffmpeg
+  make_ffmpeg
   build_ffmpegjs
 }
 
