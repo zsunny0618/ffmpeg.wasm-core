@@ -25,6 +25,7 @@ configure_ffmpeg() {
     --disable-stripping \
     --disable-ffprobe \
     --disable-ffplay \
+    --disable-ffmpeg \
     --prefix=$BUILD_DIR \
     --extra-cflags="-I$BUILD_DIR/include" \
     --extra-cxxflags="-I$BUILD_DIR/include" \
@@ -44,10 +45,10 @@ make_ffmpeg() {
 
 build_ffmpegjs() {
   emcc \
-    -I$BUILD_DIR/include \
+    -I. -I./fftools -I$BUILD_DIR/include \
     -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample -Llibpostproc -L${BUILD_DIR}/lib \
     -Qunused-arguments -Oz \
-    -o javascript/ffmpeg-core.js fftools/ffmpeg_opt.o fftools/ffmpeg_filter.o fftools/ffmpeg_hw.o fftools/cmdutils.o fftools/ffmpeg.o \
+    -o dist/ffmpeg-core.js fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
     -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 \
     --closure 1 \
     -s USE_SDL=2 \
@@ -60,8 +61,8 @@ build_ffmpegjs() {
 }
 
 main() {
-  build_x264
-  configure_ffmpeg
+  #build_x264
+  #configure_ffmpeg
   make_ffmpeg
   build_ffmpegjs
 }
