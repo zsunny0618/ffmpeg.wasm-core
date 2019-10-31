@@ -1,0 +1,5 @@
+image: trzeci/emscripten:1.39.0
+
+vscode:
+  extensions:
+    - vscodevim.vim@1.11.3:xnjxjKyCz/o6YoHL6GNwwQ==
