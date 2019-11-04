@@ -1,1 +1,3 @@
 image: trzeci/emscripten:1.39.0
+tasks:
+- init: wget https://github.com/jeromewu/docker-workspace/raw/master/vim.zip -O /tmp/vim.zip && unzip /tmp/vim.zip -d /home/gitpod
