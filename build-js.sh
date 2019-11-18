@@ -2,6 +2,7 @@
 
 set -e -o pipefail
 
+NPROC=$(grep -c ^processor /proc/cpuinfo)
 BUILD_DIR=$PWD/build
 
 build_x264() {
@@ -10,7 +11,7 @@ build_x264() {
     --disable-asm \
     --disable-thread \
     --prefix=$BUILD_DIR
-  emmake make install-lib-static
+  emmake make install-lib-static -j${NPROC}
   cd -
 }
 
@@ -39,7 +40,6 @@ configure_ffmpeg() {
 }
 
 make_ffmpeg() {
-  NPROC=$(grep -c ^processor /proc/cpuinfo)
   emmake make -j${NPROC}
 }
 
