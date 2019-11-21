@@ -6,7 +6,7 @@
 #
 
 EMSCRIPTEN_VERSION=1.39.0
-TARGET=${1:-build}
+TTY=${1:-yes}
 
 check_command() {
   CMD=$1
@@ -14,10 +14,17 @@ check_command() {
 }
 
 build() {
-  docker run -it \
-    -v ${PWD}:/src \
-    trzeci/emscripten:${EMSCRIPTEN_VERSION} \
-    sh -c "bash ./${TARGET}-js.sh"
+  if [ "$TTY" = "no" ]; then
+    docker run \
+      -v ${PWD}:/src \
+      trzeci/emscripten:${EMSCRIPTEN_VERSION} \
+      sh -c "bash ./build-js.sh"
+  else
+    docker run -it \
+      -v ${PWD}:/src \
+      trzeci/emscripten:${EMSCRIPTEN_VERSION} \
+      sh -c "bash ./build-js.sh"
+  fi
 }
 
 main() {
