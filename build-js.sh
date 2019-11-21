@@ -3,7 +3,19 @@
 set -e -o pipefail
 
 NPROC=$(grep -c ^processor /proc/cpuinfo)
-BUILD_DIR=$PWD/build
+ROOT_DIR=$PWD
+BUILD_DIR=$ROOT_DIR/build
+
+build_zlib() {
+  cd third_party/zlib
+  rm -rf build zconf.h
+  mkdir build
+  cd build
+  emmake cmake .. \
+    -DCMAKE_INSTALL_PREFIX=${BUILD_DIR}
+  emmake make install -j${NPROC}
+  cd ${ROOT_DIR}
+}
 
 build_x264() {
   cd third_party/x264
@@ -12,7 +24,7 @@ build_x264() {
     --disable-thread \
     --prefix=$BUILD_DIR
   emmake make install-lib-static -j${NPROC}
-  cd -
+  cd ${ROOT_DIR}
 }
 
 configure_ffmpeg() {
@@ -49,7 +61,7 @@ build_ffmpegjs() {
     -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample -Llibpostproc -L${BUILD_DIR}/lib \
     -Qunused-arguments -Oz \
     -o dist/ffmpeg-core.js fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
-    -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 \
+    -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz \
     --closure 1 \
     --pre-js javascript/prepend.js \
     -s USE_SDL=2 \
@@ -62,6 +74,7 @@ build_ffmpegjs() {
 }
 
 main() {
+  build_zlib
   build_x264
   configure_ffmpeg
   make_ffmpeg
