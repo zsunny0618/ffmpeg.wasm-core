@@ -1,6 +1,6 @@
 image: trzeci/emscripten:1.39.0
 tasks:
-- init: export PATH=$PATH:/emsdk_portable/clang/tag-e1.39.0/build_tag-e1.39.0_64/bin:/emsdk_portable/emscripten/tag-1.39.0
+  - init: export PATH=$PATH:/emsdk_portable/clang/tag-e1.39.0/build_tag-e1.39.0_64/bin:/emsdk_portable/emscripten/tag-1.39.0:/emsdk_portable/node/8.9.1_64bit/bin
 - init: >
     wget https://github.com/jeromewu/docker-workspace/raw/master/vim.zip -O /tmp/vim.zip &> /dev/null &&
     unzip /tmp/vim.zip -d /home/gitpod &> /dev/null
