@@ -64,6 +64,7 @@ build_ffmpegjs() {
     -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz \
     --closure 1 \
     --pre-js javascript/prepend.js \
+    --post-js javascript/post.js \
     -s USE_SDL=2 \
     -s MODULARIZE=1 \
     -s SINGLE_FILE=1 \
