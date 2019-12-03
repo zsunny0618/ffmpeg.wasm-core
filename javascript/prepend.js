@@ -10,7 +10,7 @@ Module['preRun'] = [
       try {
         require('fs').mkdirSync('./data');
       } catch(e) {}
-      FS.mount(NODEFS, { root: '.' }, '/data');
+      FS.mount(NODEFS, { root: './data' }, '/data');
     } else if (typeof importScripts === 'function') {
       FS.mount(IDBFS, {}, '/data');
       FS.writeFile('/data/.DUMMY', new Uint8Array([]));
