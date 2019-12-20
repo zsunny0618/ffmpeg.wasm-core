@@ -10,6 +10,8 @@ in **build-with-docker.sh** and **build-js.sh**
 To build ffmpeg-core.js, install Docker and execute:
 
 ```bash
+$ git submodule init
+$ git submodule update --recursive
 $ bash build-with-docker.sh
 ```
 
