@@ -60,14 +60,14 @@ build_ffmpegjs() {
     -I. -I./fftools -I$BUILD_DIR/include \
     -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample -Llibpostproc -L${BUILD_DIR}/lib \
     -Qunused-arguments -Oz \
-    -o dist/ffmpeg-core.js fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
+    -o $2 fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
     -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz \
     --closure 1 \
     --pre-js javascript/prepend.js \
     --post-js javascript/post.js \
     -s USE_SDL=2 \
     -s MODULARIZE=1 \
-    -s SINGLE_FILE=1 \
+    -s SINGLE_FILE=$1 \
     -s EXPORTED_FUNCTIONS="[_ffmpeg]" \
     -s EXTRA_EXPORTED_RUNTIME_METHODS="[cwrap, FS, getValue, setValue]" \
     -s TOTAL_MEMORY=33554432 \
@@ -79,7 +79,8 @@ main() {
   build_x264
   configure_ffmpeg
   make_ffmpeg
-  build_ffmpegjs
+  build_ffmpegjs 1 dist/ffmpeg-core.js
+  build_ffmpegjs 0 dist-wasm/ffmpeg-core.js
 }
 
 main "$@"
