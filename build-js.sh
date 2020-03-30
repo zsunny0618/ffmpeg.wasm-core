@@ -27,10 +27,22 @@ build_x264() {
   cd ${ROOT_DIR}
 }
 
+build_libwebp() {
+  cd third_party/libwebp
+  rm -rf build
+  mkdir build
+  cd build
+  emmake cmake .. \
+    -DCMAKE_INSTALL_PREFIX=${BUILD_DIR}
+  emmake make install -j${NPROC}
+  cd ${ROOT_DIR}
+}
+
 configure_ffmpeg() {
   emconfigure ./configure \
     --enable-gpl \
     --enable-libx264 \
+    --enable-libwebp \
     --disable-pthreads \
     --disable-x86asm \
     --disable-inline-asm \
@@ -77,6 +89,7 @@ build_ffmpegjs() {
 main() {
   build_zlib
   build_x264
+  build_libwebp
   configure_ffmpeg
   make_ffmpeg
   build_ffmpegjs 1 dist/ffmpeg-core.js
