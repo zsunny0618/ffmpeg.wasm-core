@@ -49,6 +49,8 @@ build_libwebp() {
 
 build_libvpx() {
   cd third_party/libvpx
+  export AS=llvm-as
+  export STRIP=llvm-strip
   emconfigure ./configure \
     --disable-examples \
     --disable-tools \
@@ -98,7 +100,7 @@ build_ffmpegjs() {
     -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample -Llibpostproc -L${BUILD_DIR}/lib \
     -Qunused-arguments -Oz \
     -o $2 fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
-    -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz \
+    -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz -lvpx -lwebp \
     --closure 1 \
     --pre-js javascript/prepend.js \
     --post-js javascript/post.js \

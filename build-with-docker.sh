@@ -16,11 +16,13 @@ check_command() {
 build() {
   if [ "$TTY" = "no" ]; then
     docker run \
+      --rm \
       -v ${PWD}:/src \
       trzeci/emscripten:${EMSCRIPTEN_VERSION} \
       sh -c "bash ./build-js.sh"
   else
     docker run -it \
+      --rm \
       -v ${PWD}:/src \
       trzeci/emscripten:${EMSCRIPTEN_VERSION} \
       sh -c "bash ./build-js.sh"
