@@ -5,6 +5,7 @@ set -e -o pipefail
 NPROC=$(grep -c ^processor /proc/cpuinfo)
 ROOT_DIR=$PWD
 BUILD_DIR=$ROOT_DIR/build
+EM_TOOLCHAIN_FILE=/emsdk_portable/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
 
 build_zlib() {
   cd third_party/zlib
@@ -12,7 +13,9 @@ build_zlib() {
   mkdir build
   cd build
   emmake cmake .. \
-    -DCMAKE_INSTALL_PREFIX=${BUILD_DIR}
+    -DCMAKE_INSTALL_PREFIX=${BUILD_DIR} \
+    -DCMAKE_TOOLCHAIN_FILE=${EM_TOOLCHAIN_FILE} \
+    -D BUILD_SHARED_LIBS=OFF
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
@@ -20,6 +23,8 @@ build_zlib() {
 build_x264() {
   cd third_party/x264
   emconfigure ./configure \
+    --enable-static \
+    --disable-cli \
     --disable-asm \
     --disable-thread \
     --prefix=$BUILD_DIR
@@ -33,7 +38,10 @@ build_libwebp() {
   mkdir build
   cd build
   emmake cmake .. \
-    -DCMAKE_INSTALL_PREFIX=${BUILD_DIR}
+    -DCMAKE_INSTALL_PREFIX=${BUILD_DIR} \
+    -DCMAKE_TOOLCHAIN_FILE=${EM_TOOLCHAIN_FILE} \
+    -D BUILD_SHARED_LIBS=OFF \
+    -D WEBP_BUILD_WEBP_JS=ON
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
