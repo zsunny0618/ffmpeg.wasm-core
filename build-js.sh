@@ -65,7 +65,9 @@ configure_ffmpeg() {
     --extra-cxxflags="-I$BUILD_DIR/include" \
     --extra-ldflags="-L$BUILD_DIR/lib" \
     --nm="llvm-nm -g" \
-    --ar=emar \
+    --ar=llvm-ar \
+    --as=llvm-as \
+    --ranlib=llvm-ranlib \
     --cc=emcc \
     --cxx=em++ \
     --objcc=emcc \
@@ -96,9 +98,9 @@ build_ffmpegjs() {
 }
 
 main() {
-  build_zlib
-  build_x264
-  build_libwebp
+  #build_zlib
+  #build_x264
+  #build_libwebp
   configure_ffmpeg
   make_ffmpeg
   build_ffmpegjs 1 dist/ffmpeg-core.js
