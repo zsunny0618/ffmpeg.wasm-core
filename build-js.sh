@@ -27,6 +27,7 @@ build_x264() {
     --disable-cli \
     --disable-asm \
     --disable-thread \
+    --host=i686-linux \
     --prefix=$BUILD_DIR
   emmake make install-lib-static -j${NPROC}
   cd ${ROOT_DIR}
