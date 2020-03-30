@@ -5,7 +5,7 @@
 # Before running this script, you need to install docker first.
 #
 
-EMSCRIPTEN_VERSION=1.39.0
+EMSCRIPTEN_VERSION=1.39.10-upstream
 TTY=${1:-yes}
 
 check_command() {
