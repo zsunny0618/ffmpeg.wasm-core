@@ -53,8 +53,6 @@ build_libvpx() {
     --disable-examples \
     --disable-tools \
     --disable-docs \
-    --enable-vp8 \
-    --enable-vp9 \
     --disable-unit-tests \
     --target=generic-gnu \
     --prefix=$BUILD_DIR
