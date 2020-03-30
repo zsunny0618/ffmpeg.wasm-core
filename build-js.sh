@@ -47,10 +47,26 @@ build_libwebp() {
   cd ${ROOT_DIR}
 }
 
+build_libvpx() {
+  cd third_party/libvpx
+  emconfigure ./configure \
+    --disable-examples \
+    --disable-tools \
+    --disable-docs \
+    --enable-vp8 \
+    --enable-vp9 \
+    --disable-unit-tests \
+    --target=generic-gnu \
+    --prefix=$BUILD_DIR
+  emmake make install -j${NPROC}
+  cd ${ROOT_DIR}
+}
+
 configure_ffmpeg() {
   emconfigure ./configure \
     --enable-gpl \
     --enable-libx264 \
+    --enable-libvpx \
     --enable-libwebp \
     --disable-pthreads \
     --disable-x86asm \
@@ -98,9 +114,10 @@ build_ffmpegjs() {
 }
 
 main() {
-  #build_zlib
-  #build_x264
-  #build_libwebp
+  build_zlib
+  build_x264
+  build_libwebp
+  build_libvpx
   configure_ffmpeg
   make_ffmpeg
   build_ffmpegjs 1 dist/ffmpeg-core.js
