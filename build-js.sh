@@ -115,14 +115,14 @@ build_ffmpegjs() {
 }
 
 main() {
-  #build_zlib
-  #build_x264
-  #build_libwebp
-  #build_libvpx
+  build_zlib
+  build_x264
+  build_libwebp
+  build_libvpx
   configure_ffmpeg
-  #make_ffmpeg
-  #build_ffmpegjs 1 dist/ffmpeg-core.js
-  #build_ffmpegjs 0 dist-wasm/ffmpeg-core.js
+  make_ffmpeg
+  build_ffmpegjs 1 dist/ffmpeg-core.js
+  build_ffmpegjs 0 dist-wasm/ffmpeg-core.js
 }
 
 main "$@"
