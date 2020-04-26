@@ -68,7 +68,6 @@ configure_ffmpeg() {
     --enable-gpl \
     --enable-libx264 \
     --enable-libvpx \
-    --enable-libwebp \
     --disable-pthreads \
     --disable-x86asm \
     --disable-inline-asm \
@@ -101,7 +100,7 @@ build_ffmpegjs() {
     -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample -Llibpostproc -L${BUILD_DIR}/lib \
     -Qunused-arguments -Oz \
     -o $2 fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
-    -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz -lvpx -lwebp \
+    -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz -lvpx \
     --closure 1 \
     --pre-js javascript/prepend.js \
     --post-js javascript/post.js \
@@ -117,7 +116,7 @@ build_ffmpegjs() {
 main() {
   build_zlib
   build_x264
-  build_libwebp
+  #build_libwebp
   build_libvpx
   configure_ffmpeg
   make_ffmpeg
