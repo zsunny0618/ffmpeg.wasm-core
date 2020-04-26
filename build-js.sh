@@ -15,7 +15,7 @@ build_zlib() {
   emmake cmake .. \
     -DCMAKE_INSTALL_PREFIX=${BUILD_DIR} \
     -DCMAKE_TOOLCHAIN_FILE=${EM_TOOLCHAIN_FILE} \
-    -D BUILD_SHARED_LIBS=OFF
+    -DBUILD_SHARED_LIBS=OFF
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
@@ -41,8 +41,8 @@ build_libwebp() {
   emmake cmake .. \
     -DCMAKE_INSTALL_PREFIX=${BUILD_DIR} \
     -DCMAKE_TOOLCHAIN_FILE=${EM_TOOLCHAIN_FILE} \
-    -D BUILD_SHARED_LIBS=OFF \
-    -D WEBP_BUILD_WEBP_JS=ON
+    -DBUILD_SHARED_LIBS=OFF \
+    -DWEBP_BUILD_WEBP_JS=ON
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
