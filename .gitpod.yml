@@ -1,4 +1,4 @@
-image: trzeci/emscripten:1.39.10-upstream
+image: trzeci/emscripten:1.39.0-upstream
 tasks:
   - init: wget https://github.com/jeromewu/docker-workspace/raw/master/vim.zip -O /tmp/vim.zip &> /dev/null && unzip /tmp/vim.zip -d /home/gitpod &> /dev/null
     command: export PATH=$PATH:/emsdk_portable/upstream/bin:/emsdk_portable/emscripten/sdk:/emsdk_portable/node/current/bin
