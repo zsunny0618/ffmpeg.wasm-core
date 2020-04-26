@@ -5,7 +5,7 @@ set -e -o pipefail
 NPROC=$(grep -c ^processor /proc/cpuinfo)
 ROOT_DIR=$PWD
 BUILD_DIR=$ROOT_DIR/build
-EM_TOOLCHAIN_FILE=/emsdk_portable/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
+EM_TOOLCHAIN_FILE=/emsdk_portable/emscripten/tag-1.39.0/cmake/Modules/Platform/Emscripten.cmake
 
 build_zlib() {
   cd third_party/zlib
@@ -15,7 +15,8 @@ build_zlib() {
   emmake cmake .. \
     -DCMAKE_INSTALL_PREFIX=${BUILD_DIR} \
     -DCMAKE_TOOLCHAIN_FILE=${EM_TOOLCHAIN_FILE} \
-    -DBUILD_SHARED_LIBS=OFF
+    -DBUILD_SHARED_LIBS=OFF \
+    -DBUILD_TESTING=OFF
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
@@ -66,8 +67,6 @@ configure_ffmpeg() {
   emconfigure ./configure \
     --enable-gpl \
     --enable-libx264 \
-    --enable-libvpx \
-    --enable-libwebp \
     --disable-pthreads \
     --disable-x86asm \
     --disable-inline-asm \
