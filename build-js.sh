@@ -117,7 +117,6 @@ build_ffmpegjs() {
 main() {
   build_zlib
   build_x264
-  build_libwebp
   build_libvpx
   configure_ffmpeg
   make_ffmpeg
