@@ -81,7 +81,7 @@ configure_ffmpeg() {
     --extra-cxxflags="-I$BUILD_DIR/include" \
     --extra-ldflags="-L$BUILD_DIR/lib" \
     --nm="llvm-nm -g" \
-    --ar=llvm-ar \
+    --ar=emar \
     --as=llvm-as \
     --ranlib=llvm-ranlib \
     --cc=emcc \
