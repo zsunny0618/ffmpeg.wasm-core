@@ -6,7 +6,6 @@
 #
 
 EMSCRIPTEN_VERSION=1.39.0
-TTY=${1:-yes}
 
 check_command() {
   CMD=$1
