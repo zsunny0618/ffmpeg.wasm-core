@@ -10,3 +10,6 @@
 [submodule "third_party/libvpx"]
 	path = third_party/libvpx
 	url = https://github.com/webmproject/libvpx/
+[submodule "third_party/libmp3lame"]
+	path = third_party/libmp3lame
+	url = https://github.com/ffmpegjs/libmp3lame

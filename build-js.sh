@@ -63,11 +63,21 @@ build_libvpx() {
   cd ${ROOT_DIR}
 }
 
+build_libmp3lame() {
+  cd third_party/libmp3lame
+  emconfigure ./configure \
+    --enable-shared=no \
+    --prefix=${BUILD_DIR}
+  emmake make install -j${NPROC}
+  cd ${ROOT_DIR}
+}
+
 configure_ffmpeg() {
   emconfigure ./configure \
     --enable-gpl \
     --enable-libx264 \
     --enable-libvpx \
+    --enable-libmp3lame \
     --disable-pthreads \
     --disable-x86asm \
     --disable-inline-asm \
@@ -101,7 +111,7 @@ build_ffmpegjs() {
     -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample -Llibpostproc -L${BUILD_DIR}/lib \
     -Qunused-arguments -Oz \
     -o $2 fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
-    -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz -lvpx \
+    -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz -lvpx -lmp3lame \
     --closure 1 \
     --pre-js javascript/prepend.js \
     --post-js javascript/post.js \
@@ -118,6 +128,7 @@ main() {
   build_zlib
   build_x264
   build_libvpx
+  build_libmp3lame
   configure_ffmpeg
   make_ffmpeg
   build_ffmpegjs 1 dist/ffmpeg-core.js
