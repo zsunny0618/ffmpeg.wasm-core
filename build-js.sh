@@ -67,6 +67,8 @@ configure_ffmpeg() {
   emconfigure ./configure \
     --enable-gpl \
     --enable-libx264 \
+    --enable-libvpx \
+    --enable-libwebp \
     --disable-pthreads \
     --disable-x86asm \
     --disable-inline-asm \
