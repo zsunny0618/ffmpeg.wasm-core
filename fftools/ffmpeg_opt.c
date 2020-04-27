@@ -494,6 +494,7 @@ static int opt_init_hw_device(void *optctx, const char *opt, const char *arg)
     } else {
         return hw_device_init_from_string(arg, NULL);
     }
+    exit(0);
 }
 
 static int opt_filter_hw_device(void *optctx, const char *opt, const char *arg)

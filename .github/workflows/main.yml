@@ -22,3 +22,7 @@ jobs:
       with:
         name: ffmpeg-core
         path: dist
+    - uses: actions/upload-artifact@master
+      with:
+        name: ffmpeg-core-wasm
+        path: dist-wasm

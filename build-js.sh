@@ -5,7 +5,7 @@ set -e -o pipefail
 NPROC=$(grep -c ^processor /proc/cpuinfo)
 ROOT_DIR=$PWD
 BUILD_DIR=$ROOT_DIR/build
-EM_TOOLCHAIN_FILE=/emsdk_portable/emscripten/tag-1.39.0/cmake/Modules/Platform/Emscripten.cmake
+EM_TOOLCHAIN_FILE=/emsdk_portable/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
 
 build_zlib() {
   cd third_party/zlib
@@ -15,8 +15,8 @@ build_zlib() {
   emmake cmake .. \
     -DCMAKE_INSTALL_PREFIX=${BUILD_DIR} \
     -DCMAKE_TOOLCHAIN_FILE=${EM_TOOLCHAIN_FILE} \
-    -DBUILD_SHARED_LIBS=OFF \
-    -DBUILD_TESTING=OFF
+    -DBUILD_SHARED_LIBS=OFF
+  emmake make clean
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
@@ -30,6 +30,7 @@ build_x264() {
     --disable-thread \
     --host=i686-linux \
     --prefix=$BUILD_DIR
+  emmake make clean
   emmake make install-lib-static -j${NPROC}
   cd ${ROOT_DIR}
 }
@@ -44,13 +45,14 @@ build_libwebp() {
     -DCMAKE_TOOLCHAIN_FILE=${EM_TOOLCHAIN_FILE} \
     -DBUILD_SHARED_LIBS=OFF \
     -DWEBP_BUILD_WEBP_JS=ON
+  emmake make clean
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
 
 build_libvpx() {
   cd third_party/libvpx
-  export AS=llvm-as
+  export AS=emar
   export STRIP=llvm-strip
   emconfigure ./configure \
     --disable-examples \
@@ -59,6 +61,7 @@ build_libvpx() {
     --disable-unit-tests \
     --target=generic-gnu \
     --prefix=$BUILD_DIR
+  emmake make clean
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
@@ -68,12 +71,14 @@ build_libmp3lame() {
   emconfigure ./configure \
     --enable-shared=no \
     --prefix=${BUILD_DIR}
+  emmake make clean
   emmake make install -j${NPROC}
   cd ${ROOT_DIR}
 }
 
 configure_ffmpeg() {
   emconfigure ./configure \
+    --arch=i686 \
     --enable-gpl \
     --enable-libx264 \
     --enable-libvpx \
@@ -102,6 +107,7 @@ configure_ffmpeg() {
 }
 
 make_ffmpeg() {
+  emmake make clean
   emmake make -j${NPROC}
 }
 
@@ -112,6 +118,7 @@ build_ffmpegjs() {
     -Qunused-arguments -Oz \
     -o $2 fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c \
     -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lz -lvpx -lmp3lame \
+    -Wno-deprecated-declarations -Wno-pointer-sign -Wno-implicit-int-float-conversion -Wno-switch -Wno-parentheses \
     --closure 1 \
     --pre-js javascript/prepend.js \
     --post-js javascript/post.js \
