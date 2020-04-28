@@ -1,6 +1,6 @@
 {
   "name": "@ffmpeg/core",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "ffmpeg.js core module",
   "main": "ffmpeg-core.js",
   "scripts": {
