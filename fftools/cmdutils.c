@@ -138,7 +138,13 @@ void exit_program(int ret)
     if (program_exit)
         program_exit(ret);
 
-    // exit(ret);
+    /*
+     * This is a work around to detect the end of the ffmpeg command
+     * Not ideal, but it works.
+     */
+    printf("FFMPEG_END\n");
+
+    exit(ret);
 }
 
 double parse_number_or_die(const char *context, const char *numstr, int type,
