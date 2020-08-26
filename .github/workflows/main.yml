@@ -3,9 +3,9 @@ name: Pt.1 Build with GCC
 # events but only for the master branch
 on:
   push:
-    branches: [ n4.3.1-p1-ci ]
+    branches: [ n4.3.1-p1 ]
   pull_request:
-    branches: [ n4.3.1-p1-ci ]
+    branches: [ n4.3.1-p1 ]
 
 jobs:
   linux-build_with_docker:
