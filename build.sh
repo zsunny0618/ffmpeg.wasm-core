@@ -6,6 +6,7 @@ emcc -v
 # configure FFmpeg with Emscripten
 emconfigure ./configure \
   --disable-x86asm \
+  --disable-inline-asm \    # Disable inline asm
   --nm="llvm-nm -g" \
   --ar=emar \
   --as=llvm-as \
@@ -16,5 +17,4 @@ emconfigure ./configure \
   --dep-cc=emcc
 
 # build FFmpeg.wasm
-
 emmake make -j
