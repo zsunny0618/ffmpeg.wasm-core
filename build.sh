@@ -6,8 +6,9 @@ emcc -v
 # configure FFmpeg with Emscripten
 FLAGS=(
   --disable-x86asm
-  --disable-inline-asm    #Disable inline asm
-  # --disable-doc           #Disable document generation
+  --disable-inline-asm    # disable inline asm
+  --disable-hwaccels      # disable all hardware accelerations
+  # --disable-doc           # disable document generation
   --nm="llvm-nm -g"
   --ar=emar
   --as=llvm-as
