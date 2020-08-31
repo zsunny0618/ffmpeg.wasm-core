@@ -7,6 +7,7 @@ emcc -v
 emconfigure ./configure \
   --disable-x86asm \
   --disable-inline-asm \    # Disable inline asm
+  --disable-doc \           # Disable document generation
   --nm="llvm-nm -g" \
   --ar=emar \
   --as=llvm-as \
