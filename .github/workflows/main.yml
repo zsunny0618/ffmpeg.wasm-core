@@ -41,6 +41,7 @@ jobs:
       - name: Build FFMpeg
         shell: bash
         run: |
+          export PATH=$PATH:$PWD/emsdk-cache/emsdk-master/upstream/bin
           bash build.sh
       - uses: actions/upload-artifact@master
         with:
