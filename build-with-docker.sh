@@ -1,12 +1,13 @@
 #!/bin/bash -x
 
+set -eo pipefail
+
 EM_VERSION=1.39.18-upstream
-FLAGS=""
-# Attach TTY only when available, this is for running in Gihub Actions
-if [ -t 1 ]; then FLAGS="-it"; fi
 
 docker pull trzeci/emscripten:$EM_VERSION
-docker run $FLAGS \
+docker run \
+  --rm \
   -v $PWD:/src \
+  -v $PWD/wasm/cache:/emsdk_portable/.data/cache/wasm \
   trzeci/emscripten:$EM_VERSION \
-  sh -c 'bash ./build.sh'
+  sh -c 'bash -x ./build.sh'
