@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - name: Build FFMpeg
         shell: bash
         run: |
@@ -28,6 +30,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - name: Setup cache
         id: cache-system-libraries
         uses: actions/cache@v2
