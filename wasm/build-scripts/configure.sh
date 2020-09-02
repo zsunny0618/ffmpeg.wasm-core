@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-CFLAGS="-s USE_PTHREADS"
+CFLAGS="-s USE_PTHREADS -O3"
 LDFLAGS="$CFLAGS -s INITIAL_MEMORY=33554432" # 33554432 bytes = 32 MB
 ARGS=(
   --target-os=none        # use none to prevent any os specific configurations

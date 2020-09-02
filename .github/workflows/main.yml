@@ -1,4 +1,4 @@
-name: Pt.3 FFmpeg with x264
+name: Pt.3 FFmpeg v0.1
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
@@ -22,7 +22,7 @@ jobs:
           bash build-with-docker.sh
       - uses: actions/upload-artifact@master
         with:
-          name: ffmpeg-linux
+          name: ffmpeg-core-linux
           path: wasm/dist
   macos-build:
     runs-on: macos-latest
@@ -45,7 +45,7 @@ jobs:
           bash build.sh
       - uses: actions/upload-artifact@master
         with:
-          name: ffmpeg-macos
+          name: ffmpeg-core-macos
           path: wasm/dist
   # Not working with error messsage:
   #   C:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32\bin\ar.exe: libavfilter/vsink_null: No such file or directory
