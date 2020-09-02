@@ -6,7 +6,7 @@ Module.onRuntimeInitialized = () => {
   Module.FS.writeFile('flame.avi', data);
 
   const ffmpeg = Module.cwrap('proxy_main', 'number', ['number', 'number']);
-  const args = ['ffmpeg', '-hide_banner', '-i', 'flame.avi', 'flame.mp4'];
+  const args = ['ffmpeg', '-hide_banner', '-report', '-i', 'flame.avi', 'flame.mp4'];
   const argsPtr = Module._malloc(args.length * Uint32Array.BYTES_PER_ELEMENT);
   args.forEach((s, idx) => {
     const buf = Module._malloc(s.length + 1);
@@ -17,13 +17,17 @@ Module.onRuntimeInitialized = () => {
 
   /*
    * The execution of ffmpeg is not synchronized,
-   * so we need to set a timer to wait for it completes.
+   * so we need to parse the log file to check if completed.
    */
   const timer = setInterval(() => {
-    if (Module.FS.readdir('.').find(f => f === 'flame.mp4') !== -1) {
-      clearInterval(timer);
-      const output = Module.FS.readFile('flame.mp4');
-      fs.writeFileSync('flame.mp4', output);
+    const logFileName = Module.FS.readdir('.').find(name => name.endsWith('.log'));
+    if (typeof logFileName !== 'undefined') {
+      const log = String.fromCharCode.apply(null, Module.FS.readFile(logFileName));
+      if (log.includes("frames successfully decoded")) {
+        clearInterval(timer);
+        const output = Module.FS.readFile('flame.mp4');
+        fs.writeFileSync('flame.mp4', output);
+      }
     }
   }, 500);
 };
