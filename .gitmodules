@@ -1,6 +1,7 @@
 [submodule "third_party/x264"]
 	path = third_party/x264
 	url = https://github.com/ffmpegwasm/x264
+  branch = stable-wasm-old
 [submodule "third_party/zlib"]
 	path = third_party/zlib
 	url = https://github.com/madler/zlib.git
