@@ -46,6 +46,7 @@
           Module.setValue(argsPtr + (Uint32Array.BYTES_PER_ELEMENT * idx), buf, 'i32');
         });
         message.innerHTML = 'Start to transcode';
+        console.time('execution time');
         ffmpeg(args.length, argsPtr);
 
         /*
@@ -62,12 +63,13 @@
               const out = Module.FS.readFile('out.mp4');
               const video = document.getElementById('output-video');
               video.src = URL.createObjectURL(new Blob([out.buffer], { type: 'video/mp4' }));
+              console.timeEnd('execution time');
             }
           }
         }, 500);
       };
       document.getElementById('uploader').addEventListener('change', transcode);
     </script>
-    <script type="text/javascript" src="./dist/ffmpeg-core.js"></script>
+    <script type="text/javascript" src="./dist-old/ffmpeg-core.js"></script>
   </body>
 </html>

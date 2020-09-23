@@ -13,6 +13,7 @@ Module.onRuntimeInitialized = () => {
     Module.writeAsciiToMemory(s, buf);
     Module.setValue(argsPtr + (Uint32Array.BYTES_PER_ELEMENT * idx), buf, 'i32');
   });
+  console.time('execution time');
   ffmpeg(args.length, argsPtr);
 
   /*
@@ -27,6 +28,8 @@ Module.onRuntimeInitialized = () => {
         clearInterval(timer);
         const output = Module.FS.readFile('flame.mp4');
         fs.writeFileSync('flame.mp4', output);
+        console.timeEnd('execution time');
+        process.exit(1);
       }
     }
   }, 500);
