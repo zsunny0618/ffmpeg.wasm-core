@@ -37,6 +37,4 @@
 /src
 /mapfile
 /tools/python/__pycache__/
-/wasm/cache
-/wasm/dist
 /build
