@@ -1,3 +1,6 @@
 [submodule "third_party/x264"]
 	path = third_party/x264
   url = https://github.com/ffmpegwasm/x264.git
+[submodule "wasm/tests/data"]
+	path = wasm/tests/data
+	url = https://github.com/ffmpegwasm/testdata
