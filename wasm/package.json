@@ -4,7 +4,7 @@
   "description": "ffmpeg.wasm core",
   "main": "dist/ffmpeg-core.js",
   "scripts": {
-    "test": "jest"
+    "test": "node --experimental-wasm-threads --experimental-wasm-bulk-memory ./node_modules/.bin/jest"
   },
   "repository": {
     "type": "git",
