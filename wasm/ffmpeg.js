@@ -2,7 +2,7 @@ const fs = require('fs');
 const Module = require('./dist/ffmpeg-core');
 
 Module.onRuntimeInitialized = () => {
-  const data = Uint8Array.from(fs.readFileSync('../testdata/flame.avi'));
+  const data = Uint8Array.from(fs.readFileSync('tests/data/flame.avi'));
   Module.FS.writeFile('flame.avi', data);
 
   const ffmpeg = Module.cwrap('proxy_main', 'number', ['number', 'number']);
