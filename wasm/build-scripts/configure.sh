@@ -3,8 +3,8 @@
 set -eo pipefail
 
 BUILD_DIR=$1
-CFLAGS="-s USE_PTHREADS -O3 -I$BUILD_DIR/include"
-LDFLAGS="$CFLAGS -L$BUILD_DIR/lib -s INITIAL_MEMORY=33554432" # 33554432 bytes = 32 MB
+CFLAGS="-s USE_PTHREADS -I$BUILD_DIR/include -O3 --closure 1"
+LDFLAGS="$CFLAGS -L$BUILD_DIR/lib"
 ARGS=(
   --target-os=none        # use none to prevent any os specific configurations
   --arch=x86_32           # use x86_32 to achieve minimal architectural optimization
@@ -16,6 +16,7 @@ ARGS=(
   --disable-doc           # disable doc
   --enable-gpl            # required by x264
   --enable-libx264        # enable x264
+  --disable-debug         # disable debug info, required by closure
   --extra-cflags="$CFLAGS"
   --extra-cxxflags="$CFLAGS"
   --extra-ldflags="$LDFLAGS"
