@@ -1802,7 +1802,7 @@ static void print_report(int is_last_report, int64_t timer_start, int64_t cur_ti
     }
 
     if (print_stats || is_last_report) {
-        const char end = is_last_report ? '\n' : '\r';
+        const char end = '\n'; // = is_last_report ? '\n' : '\r';
         if (print_stats==1 && AV_LOG_INFO > av_log_get_level()) {
             fprintf(stderr, "%s    %c", buf.str, end);
         } else
@@ -4816,24 +4816,11 @@ static void log_callback_null(void *ptr, int level, const char *fmt, va_list vl)
 {
 }
 
-/*
- * ffmpeg.wasm: initialize variables for a new run
- */
-static void init_variables() {
-  nb_input_streams  = 0;
-  nb_input_files    = 0;
-  nb_output_streams = 0;
-  nb_output_files   = 0;
-  nb_filtergraphs   = 0;
-  ffmpeg_exited     = 0;
-}
-
 int main(int argc, char **argv)
 {
     int i, ret;
     BenchmarkTimeStamps ti;
 
-    init_variables();
     init_dynload();
 
     register_exit(ffmpeg_cleanup);
