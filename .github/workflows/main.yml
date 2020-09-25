@@ -41,7 +41,7 @@ jobs:
       # java 6 is required for using closure compiler
       - uses: actions/setup-java@v1
         with:
-          java-version: '6' # The JDK version to make available on the path.
+          java-version: '6.0.119' # The JDK version to make available on the path.
           java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
           architecture: x64 # (x64 or x86) - defaults to
       - uses: mymindstorm/setup-emsdk@v6
