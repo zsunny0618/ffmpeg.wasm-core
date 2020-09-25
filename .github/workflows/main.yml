@@ -29,11 +29,12 @@ jobs:
   macos-build:
     runs-on: macos-latest
     steps:
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '7' # The JDK version to make available on the path.
-          java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
-          architecture: x64 # (x64 or x86) - defaults to
+      steps:
+        - uses: actions/checkout@v2
+        - uses: joschi/setup-jdk@v2
+          with:
+            java-version: '6' # The OpenJDK version to make available on the path
+            architecture: 'x64' # defaults to 'x64'
       - uses: actions/checkout@v2
         with:
           submodules: recursive
