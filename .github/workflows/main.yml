@@ -29,10 +29,6 @@ jobs:
   macos-build:
     runs-on: macos-latest
     steps:
-      - uses: joschi/setup-jdk@v2
-        with:
-          java-version: '6' # The OpenJDK version to make available on the path
-          architecture: 'x64' # defaults to 'x64'
       - uses: actions/checkout@v2
         with:
           submodules: recursive
@@ -49,7 +45,6 @@ jobs:
       - name: Build FFMpeg
         shell: bash
         run: |
-          java -version
           export PATH=$PATH:$PWD/emsdk-cache/emsdk-master/upstream/bin
           bash build.sh
       - uses: actions/upload-artifact@master
