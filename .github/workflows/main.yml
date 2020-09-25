@@ -30,11 +30,10 @@ jobs:
     runs-on: macos-latest
     steps:
       steps:
-        - uses: actions/checkout@v2
-        - uses: joschi/setup-jdk@v2
-          with:
-            java-version: '6' # The OpenJDK version to make available on the path
-            architecture: 'x64' # defaults to 'x64'
+      - uses: joschi/setup-jdk@v2
+        with:
+          java-version: '6' # The OpenJDK version to make available on the path
+          architecture: 'x64' # defaults to 'x64'
       - uses: actions/checkout@v2
         with:
           submodules: recursive
