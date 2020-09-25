@@ -29,7 +29,6 @@ jobs:
   macos-build:
     runs-on: macos-latest
     steps:
-      # java 7 is required for using closure compiler
       - uses: actions/setup-java@v1
         with:
           java-version: '7' # The JDK version to make available on the path.
@@ -51,6 +50,7 @@ jobs:
       - name: Build FFMpeg
         shell: bash
         run: |
+          java -version
           export PATH=$PATH:$PWD/emsdk-cache/emsdk-master/upstream/bin
           bash build.sh
       - uses: actions/upload-artifact@master
