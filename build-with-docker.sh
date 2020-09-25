@@ -1,6 +1,6 @@
-#!/bin/bash -x
+#!/bin/bash
 
-set -eo pipefail
+set -euo pipefail
 
 EM_VERSION=1.39.18-upstream
 
@@ -10,4 +10,4 @@ docker run \
   -v $PWD:/src \
   -v $PWD/wasm/cache:/emsdk_portable/.data/cache/wasm \
   trzeci/emscripten:$EM_VERSION \
-  sh -c 'bash -x ./build.sh'
+  sh -c 'bash ./build.sh'
