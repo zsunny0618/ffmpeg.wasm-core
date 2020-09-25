@@ -11,7 +11,7 @@ OPTIM_FLAGS=(
 )
 
 # Directory to install headers and libraries
-BUILD_DIR=build
+BUILD_DIR=$PWD/build
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   # Use closure complier only in linux environment
