@@ -29,7 +29,6 @@ jobs:
   macos-build:
     runs-on: macos-latest
     steps:
-      steps:
       - uses: joschi/setup-jdk@v2
         with:
           java-version: '6' # The OpenJDK version to make available on the path
