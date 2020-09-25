@@ -18,7 +18,6 @@ FLAGS=(
   --enable-libx264        # enable x264
   --disable-debug         # disable debug info, required by closure
   --disable-runtime-cpudetect   # disable runtime cpu detect
-  --disable-autodetect    # disable external libraries auto detect
   --extra-cflags="$CFLAGS"
   --extra-cxxflags="$CFLAGS"
   --extra-ldflags="$LDFLAGS"
