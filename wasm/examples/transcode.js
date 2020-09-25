@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const createFFmpegCore = require('./dist/ffmpeg-core');
+const createFFmpegCore = require('../dist/ffmpeg-core');
 
 (async () => {
   let resolve = null;
@@ -13,7 +13,7 @@ const createFFmpegCore = require('./dist/ffmpeg-core');
       }
     }
   });
-  const filePath = path.join(__dirname, 'tests', 'data', 'video-3s.avi');
+  const filePath = path.join(__dirname, '..', 'tests', 'data', 'video-3s.avi');
   const data = Uint8Array.from(fs.readFileSync(filePath));
   Core.FS.writeFile('video.avi', data);
 
