@@ -3,8 +3,8 @@
 set -euo pipefail
 source $(dirname $0)/var.sh
 
-X264_PATH=third_party/x264
-FLAGS=(
+LIB_PATH=third_party/x264
+CONF_FLAGS=(
   --prefix=$BUILD_DIR                                 # install library in a build directory for FFmpeg to include
   --host=i686-gnu                                     # use i686 linux
   --enable-static                                     # enable building static library
@@ -12,6 +12,7 @@ FLAGS=(
   --disable-asm                                       # disable asm optimization
   --extra-cflags="-c -s USE_PTHREADS=1 $OPTIM_FLAGS"  # flags to use pthread and code optimization
 )
-echo "FLAGS=${FLAGS[@]}"
-(cd $X264_PATH && emconfigure ./configure "${FLAGS[@]}")
-emmake make -C $X264_PATH install-lib-static -j
+echo "CONF_FLAGS=${CONF_FLAGS[@]}"
+(cd $LIB_PATH && emconfigure ./configure "${CONF_FLAGS[@]}")
+emmake make -C $LIB_PATH clean
+emmake make -C $LIB_PATH install-lib-static -j

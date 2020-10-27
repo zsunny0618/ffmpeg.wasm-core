@@ -8,6 +8,8 @@ SCRIPT_ROOT=$(dirname $0)/wasm/build-scripts
 emcc -v
 # build x264
 $SCRIPT_ROOT/build-x264.sh
+# build libvpx
+$SCRIPT_ROOT/build-libvpx.sh
 # configure FFmpeg with Emscripten
 $SCRIPT_ROOT/configure-ffmpeg.sh
 # build ffmpeg.wasm

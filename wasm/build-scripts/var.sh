@@ -37,6 +37,7 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --disable-doc           # disable doc
   --enable-gpl            # required by x264
   --enable-libx264        # enable x264
+  --enable-libvpx         # enable libvpx / webm
   --disable-debug         # disable debug info, required by closure
   --disable-runtime-cpudetect   # disable runtime cpu detect
   --disable-autodetect    # disable external libraries auto detect
