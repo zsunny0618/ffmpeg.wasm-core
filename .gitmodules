@@ -4,3 +4,6 @@
 [submodule "wasm/tests/data"]
 	path = wasm/tests/data
 	url = https://github.com/ffmpegwasm/testdata
+[submodule "third_party/libvpx"]
+	path = third_party/libvpx
+	url = https://github.com/ffmpegwasm/libvpx
