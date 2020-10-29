@@ -13,3 +13,6 @@
 [submodule "third_party/WavPack"]
 	path = third_party/WavPack
 	url = https://github.com/ffmpegwasm/WavPack
+[submodule "third_party/lame"]
+	path = third_party/lame
+	url = https://github.com/ffmpegwasm/lame

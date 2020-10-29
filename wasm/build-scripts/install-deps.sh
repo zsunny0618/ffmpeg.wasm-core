@@ -2,6 +2,7 @@
 
 cmds=()
 
+# Detect what dependencies are missing.
 for cmd in autoconf automake libtool
 do
   if ! command -v $cmd &> /dev/null
@@ -10,6 +11,7 @@ do
   fi
 done
 
+# Install missing dependencies
 if [ ${#cmds[@]} -ne 0 ];
 then
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
