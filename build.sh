@@ -20,6 +20,10 @@ $SCRIPT_ROOT/build-wavpack.sh
 $SCRIPT_ROOT/build-lame.sh
 # build fdk-aac
 $SCRIPT_ROOT/build-fdk-aac.sh
+# build ogg
+# $SCRIPT_ROOT/build-ogg.sh
+# build vorbis
+# $SCRIPT_ROOT/build-vorbis.sh
 # configure FFmpeg with Emscripten
 $SCRIPT_ROOT/configure-ffmpeg.sh
 # build ffmpeg.wasm core
