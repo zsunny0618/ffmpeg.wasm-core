@@ -40,3 +40,4 @@ If nothing goes wrong, you can find JavaScript files in `wasm/dist`.
 
 - wavpack (wav): 5.3.0
 - lame (mp3): 3.100
+- fdk-aac (aac); 2.0.1
