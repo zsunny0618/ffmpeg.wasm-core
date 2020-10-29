@@ -39,3 +39,4 @@ If nothing goes wrong, you can find JavaScript files in `wasm/dist`.
 #### Audio
 
 - wavpack (wav): 5.3.0
+- lame (mp3): 3.100

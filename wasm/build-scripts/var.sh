@@ -45,6 +45,7 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --enable-libx264        # enable x264
   --enable-libvpx         # enable libvpx / webm
   --enable-libwavpack     # enable libwavpack
+  --enable-libmp3lame     # enable libmp3lame
   --disable-debug         # disable debug info, required by closure
   --disable-runtime-cpudetect   # disable runtime cpu detect
   --disable-autodetect    # disable external libraries auto detect

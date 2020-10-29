@@ -16,6 +16,8 @@ $SCRIPT_ROOT/build-x264.sh
 $SCRIPT_ROOT/build-libvpx.sh
 # build WavPack
 $SCRIPT_ROOT/build-wavpack.sh
+# build lame
+$SCRIPT_ROOT/build-lame.sh
 # configure FFmpeg with Emscripten
 $SCRIPT_ROOT/configure-ffmpeg.sh
 # build ffmpeg.wasm core
