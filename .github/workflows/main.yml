@@ -8,7 +8,7 @@ on:
     branches: [ n4.3.1-wasm ]
 
 env:
-  EM_VERSION: 1.39.18
+  EM_VERSION: 2.0.8
   EM_CACHE_FOLDER: 'emsdk-cache'
 
 jobs:
@@ -22,6 +22,9 @@ jobs:
         shell: bash
         run: |
           bash build-with-docker.sh
+      - name: Run Tests
+        run: |
+          cd wasm && npm install && npm test
       - uses: actions/upload-artifact@master
         with:
           name: ffmpeg-core-linux

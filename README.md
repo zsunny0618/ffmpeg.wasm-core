@@ -26,7 +26,16 @@ If nothing goes wrong, you can find JavaScript files in `wasm/dist`.
 
 ## Configuration
 
+#### Base
+
 - Emscripten: 2.0.8
 - FFmpeg: 4.3.1
-- x264: 0.160.x
-- libvpx: 1.9.0
+
+#### Video
+
+- x264 (mp4): 0.160.x
+- libvpx (webm): 1.9.0
+
+#### Audio
+
+- wavpack (wav): 5.3.0
