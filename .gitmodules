@@ -16,3 +16,6 @@
 [submodule "third_party/lame"]
 	path = third_party/lame
 	url = https://github.com/ffmpegwasm/lame
+[submodule "third_party/fdk-aac"]
+	path = third_party/fdk-aac
+	url = https://github.com/ffmpegwasm/fdk-aac
