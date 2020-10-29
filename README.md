@@ -2,7 +2,9 @@ FFmpeg.wasm Core
 ================
 ![FFmpeg.wasm Core](https://github.com/ffmpegwasm/ffmpeg.wasm-core/workflows/FFmpeg.wasm/badge.svg?branch=n4.3.1-wasm)
 
-This is the core part of FFmpeg.wasm where we transpile C/C++ code of FFmpeg to JavaScript/WebAssembly code. It is still very experimental (and slow), but shows the possibilities of using FFmpeg right purely in your browser.
+This is the core part of FFmpeg.wasm where we transpile C/C++ code of FFmpeg to JavaScript/WebAssembly code. It is still very experimental (and slow), but shows the possibilities of using FFmpeg purely in the browser.
+
+If you have any issues for this repository, please put it here: https://github.com/ffmpegwasm/ffmpeg.wasm/issues
 
 ## Build
 
