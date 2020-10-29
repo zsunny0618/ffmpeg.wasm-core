@@ -7,3 +7,6 @@
 [submodule "third_party/libvpx"]
 	path = third_party/libvpx
 	url = https://github.com/ffmpegwasm/libvpx
+[submodule "third_party/x265"]
+	path = third_party/x265
+	url = https://github.com/ffmpegwasm/x265

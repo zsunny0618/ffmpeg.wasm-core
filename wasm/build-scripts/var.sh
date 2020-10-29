@@ -4,6 +4,9 @@
 
 set -euo pipefail
 
+# Include llvm binaries
+export PATH=$PATH:/emsdk/upstream/bin
+
 # Flags for code optimization, focus on speed instead
 # of size
 OPTIM_FLAGS=(
@@ -23,6 +26,9 @@ OPTIM_FLAGS="${OPTIM_FLAGS[@]}"
 
 # Directory to install headers and libraries
 BUILD_DIR=$PWD/build
+
+# Toolchain file path for cmake
+TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
 
 CFLAGS="-s USE_PTHREADS=1 -I$BUILD_DIR/include $OPTIM_FLAGS"
 LDFLAGS="$CFLAGS -L$BUILD_DIR/lib"
