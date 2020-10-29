@@ -1,18 +1,21 @@
 #!/bin/bash
 
-cmds=(autoconf automake libtool)
+cmds=()
 
-# for cmd in autoconf libtool
-# do
-#   if ! command -v $cmd &> /dev/null
-#   then
-#     missingCmds+=("$cmd")
-#   fi
-# done
+for cmd in autoconf automake libtool
+do
+  if ! command -v $cmd &> /dev/null
+  then
+    cmds+=("$cmd")
+  fi
+done
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  apt-get update
-  apt-get install -y ${cmds[@]}
-else
-  brew install ${cmds[@]}
+if [ ${#cmds[@]} -ne 0 ];
+then
+  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    apt-get update
+    apt-get install -y ${cmds[@]}
+  else
+    brew install ${cmds[@]}
+  fi
 fi
