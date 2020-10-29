@@ -19,8 +19,9 @@ const ffmpeg = (Core, args) => {
   );
 };
 
-const runFFmpeg = async (filename, data, args) => {
+const runFFmpeg = async (ifilename, data, args, ofilename) => {
   let resolve = null;
+  let fileSize = -1;
   const Core = await createFFmpegCore({
     printErr: () => {},
     print: (m) => {
@@ -29,10 +30,14 @@ const runFFmpeg = async (filename, data, args) => {
       }
     },
   });
-  Core.FS.writeFile(filename, data);
+  Core.FS.writeFile(ifilename, data);
   ffmpeg(Core, args);
   await new Promise((_resolve) => { resolve = _resolve });
-  return Core;
+  if (typeof ofilename !== 'undefined') {
+    fileSize = Core.FS.readFile(ofilename).length;
+    Core.FS.unlink(ofilename);
+  }
+  return { Core, fileSize };
 };
 
 module.exports = {
