@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cmds=(autoconf libtool)
+cmds=(autoconf automake libtool)
 
 # for cmd in autoconf libtool
 # do
