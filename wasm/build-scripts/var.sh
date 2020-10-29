@@ -42,10 +42,12 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --disable-programs      # disable programs build (incl. ffplay, ffprobe & ffmpeg)
   --disable-doc           # disable doc
   --enable-gpl            # required by x264
+  --enable-nonfree        # required by fdk-aac
   --enable-libx264        # enable x264
   --enable-libvpx         # enable libvpx / webm
   --enable-libwavpack     # enable libwavpack
   --enable-libmp3lame     # enable libmp3lame
+  --enable-libfdk-aac     # enable libfdk-aac
   --disable-debug         # disable debug info, required by closure
   --disable-runtime-cpudetect   # disable runtime cpu detect
   --disable-autodetect    # disable external libraries auto detect

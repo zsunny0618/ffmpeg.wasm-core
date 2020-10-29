@@ -18,6 +18,8 @@ $SCRIPT_ROOT/build-libvpx.sh
 $SCRIPT_ROOT/build-wavpack.sh
 # build lame
 $SCRIPT_ROOT/build-lame.sh
+# build fdk-aac
+$SCRIPT_ROOT/build-fdk-aac.sh
 # configure FFmpeg with Emscripten
 $SCRIPT_ROOT/configure-ffmpeg.sh
 # build ffmpeg.wasm core
