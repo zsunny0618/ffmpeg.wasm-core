@@ -22,9 +22,6 @@ jobs:
         shell: bash
         run: |
           bash build-with-docker.sh
-      - name: Run Tests
-        run: |
-          cd wasm && npm install && npm test
       - uses: actions/upload-artifact@master
         with:
           name: ffmpeg-core-linux

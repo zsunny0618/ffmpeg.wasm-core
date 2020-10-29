@@ -1,18 +1,18 @@
 #!/bin/bash
 
-missingCmds=()
+cmds=(autoconf libtool)
 
-for cmd in autoconf libtool
-do
-  if ! command -v $cmd &> /dev/null
-  then
-    missingCmds+=("$cmd")
-  fi
-done
+# for cmd in autoconf libtool
+# do
+#   if ! command -v $cmd &> /dev/null
+#   then
+#     missingCmds+=("$cmd")
+#   fi
+# done
 
-if [ ${#missingCmds[@]} -ne 0 ];
-then
-  echo "Install missing dependencies"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   apt-get update
-  apt-get install -y ${missingCmds[@]}
+  apt-get install -y ${cmds[@]}
+else
+  brew install ${cmds[@]}
 fi
