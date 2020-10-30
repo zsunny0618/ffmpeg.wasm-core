@@ -7,8 +7,6 @@ set -euo pipefail
 # Include llvm binaries
 export PATH=$PATH:$EMSDK/upstream/bin
 
-export PKG_CONFIG_PATH=$PWD/build/lib/pkgconfig
-
 # Flags for code optimization, focus on speed instead
 # of size
 OPTIM_FLAGS=(
