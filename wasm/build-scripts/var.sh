@@ -5,7 +5,7 @@
 set -euo pipefail
 
 # Include llvm binaries
-export PATH=$PATH:/emsdk/upstream/bin
+export PATH=$PATH:$EMSDK/upstream/bin
 
 # Flags for code optimization, focus on speed instead
 # of size
@@ -31,7 +31,7 @@ ROOT_DIR=$PWD
 BUILD_DIR=$ROOT_DIR/build
 
 # Toolchain file path for cmake
-TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
+TOOLCHAIN_FILE=$EMSDK/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
 
 CFLAGS="-s USE_PTHREADS=1 -I$BUILD_DIR/include $OPTIM_FLAGS"
 LDFLAGS="$CFLAGS -L$BUILD_DIR/lib"
@@ -69,5 +69,6 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --dep-cc=emcc
 )
 
+echo "EMSDK=$EMSDK"
 echo "OPTIM_FLAGS=$OPTIM_FLAGS"
 echo "BUILD_DIR=$BUILD_DIR"
