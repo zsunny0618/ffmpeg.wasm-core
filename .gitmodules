@@ -25,3 +25,6 @@
 [submodule "third_party/Ogg"]
 	path = third_party/Ogg
 	url = https://github.com/ffmpegwasm/Ogg
+[submodule "third_party/theora"]
+	path = third_party/theora
+	url = https://github.com/ffmpegwasm/theora
