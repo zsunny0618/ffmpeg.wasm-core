@@ -27,6 +27,7 @@ FLAGS_10BIT=(
 
 FLAGS_MAIN=(
   ${BASE_FLAGS[@]}
+  -DCMAKE_INSTALL_PREFIX=$BUILD_DIR
   -DEXTRA_LIB="x265_main10.a;x265_main12.a"
   -DEXTRA_LINK_FLAGS=-L.
   -DLINKED_10BIT=ON
@@ -51,7 +52,7 @@ cd ../main
 ln -sf ../10bit/libx265.a libx265_main10.a
 ln -sf ../12bit/libx265.a libx265_main12.a
 emmake cmake ../.. -DCMAKE_CXX_FLAGS="$CXXFLAGS" ${FLAGS_MAIN[@]}
-emmake make -j
+emmake make install -j
 
 mv libx265.a libx265_main.a
 
@@ -65,14 +66,6 @@ SAVE
 END
 EOF
 
-# Copy files to build directory
-mkdir -p $BUILD_DIR
-mkdir -p $BUILD_DIR/include
-mkdir -p $BUILD_DIR/lib
-mkdir -p $BUILD_DIR/lib/pkgconfig
-cp x265_config.h $BUILD_DIR/include
-cp ../../x265.h $BUILD_DIR/include
 cp libx265.a $BUILD_DIR/lib
-cp x265.pc $BUILD_DIR/lib/pkgconfig
 
 cd $ROOT_DIR
