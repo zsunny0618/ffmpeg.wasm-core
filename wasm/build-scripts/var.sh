@@ -24,8 +24,11 @@ fi
 # Convert array to string
 OPTIM_FLAGS="${OPTIM_FLAGS[@]}"
 
+# Root directory
+ROOT_DIR=$PWD
+
 # Directory to install headers and libraries
-BUILD_DIR=$PWD/build
+BUILD_DIR=$ROOT_DIR/build
 
 # Toolchain file path for cmake
 TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
@@ -44,6 +47,7 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --enable-gpl            # required by x264
   --enable-nonfree        # required by fdk-aac
   --enable-libx264        # enable x264
+  --enable-libx265        # enable x265
   --enable-libvpx         # enable libvpx / webm
   --enable-libwavpack     # enable libwavpack
   --enable-libmp3lame     # enable libmp3lame

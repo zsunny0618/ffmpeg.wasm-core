@@ -4,13 +4,14 @@ set -euo pipefail
 source $(dirname $0)/var.sh
 
 LIB_PATH=third_party/vorbis
-CFLAGS="-s USE_PTHREADS=1 $OPTIM_FLAGS -I$BUILD_DIR/include -Qunused-arguments"
+CFLAGS="-s USE_PTHREADS=1 $OPTIM_FLAGS -I$BUILD_DIR/include"
 LDFLAGS="-L$BUILD_DIR/lib"
 CONF_FLAGS=(
   --prefix=$BUILD_DIR                                 # install library in a build directory for FFmpeg to include
   --host=i686-linux                                   # use i686 linux
-  --disable-shared                                    # disable shared library
+  --enable-shared=no                                  # disable shared library
   --disable-oggtest                                   # disable tests
+  --enable-fast-install=no
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && \

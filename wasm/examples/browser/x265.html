@@ -14,7 +14,7 @@
     </style>
   </head>
   <body>
-    <h3>Upload a video to transcode to mp4 (x265) and play!</h3>
+    <h3>Upload a video to transcode to mp4 (x265)!</h3>
     <video id="output-video" controls></video><br/>
     <input type="file" id="uploader">
     <p id="message">Upload a video</p>
@@ -24,7 +24,7 @@
       const transcode = async ({ target: { files } }) => {
         const IN_FILE_NAME = 'video.avi';
         const OUT_FILE_NAME = 'video.mp4';
-        const args = ['-i', IN_FILE_NAME, '-c:v', 'libx265', '-c:a', 'copy', OUT_FILE_NAME];
+        const args = ['-i', IN_FILE_NAME, '-c:v', 'libx265', '-pix_fmt', 'yuv420p10le', '-c:a', 'copy', OUT_FILE_NAME];
         message.innerHTML = 'Writing file to MEMFS';
         const data = new Uint8Array(await readFromBlobOrFile(files[0]));
         const now = Date.now();

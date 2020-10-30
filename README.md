@@ -43,6 +43,7 @@ If nothing goes wrong, you can find JavaScript files in `wasm/dist`.
 #### Video
 
 - x264 (mp4): 0.160.x
+- x265 (mp4): 3.4 (only works with `-pix_fmt yuv420p10le` and `-pix_fmt yuv420p12le`)
 - libvpx (webm): 1.9.0
 
 #### Audio

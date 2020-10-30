@@ -10,8 +10,8 @@ emcc -v
 $SCRIPT_ROOT/install-deps.sh
 # build x264
 $SCRIPT_ROOT/build-x264.sh
-# build x265 (WIP)
-# $SCRIPT_ROOT/build-x265.sh
+# build x265
+$SCRIPT_ROOT/build-x265.sh
 # build libvpx
 $SCRIPT_ROOT/build-libvpx.sh
 # build WavPack
