@@ -3,7 +3,7 @@
 set -euo pipefail
 source $(dirname $0)/var.sh
 
-LIB_PATH=third_party/vorbis
+LIB_PATH=third_party/theora
 CFLAGS="-s USE_PTHREADS=1 $OPTIM_FLAGS -I$BUILD_DIR/include"
 LDFLAGS="-L$BUILD_DIR/lib"
 CONF_FLAGS=(
@@ -11,15 +11,16 @@ CONF_FLAGS=(
   --host=i686-linux                                   # use i686 linux
   --enable-shared=no                                  # disable shared library
   --enable-docs=no
-  --enable-examples=no
   --enable-fast-install=no
-  --disable-oggtest                                   # disable oggtests
+  --disable-spec
+  --disable-asm
+  --disable-examples
+  --disable-oggtest                                   # disable ogg tests
+  --disable-vorbistest                                # disable vorbis tests
+  --disable-sdltest                                   # disable sdl tests
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && \
-  emconfigure ./autogen.sh && \
-  CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS emconfigure ./configure "${CONF_FLAGS[@]}")
-# (cd $LIB_PATH && \
-#   CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS emconfigure ./autogen.sh "${CONF_FLAGS[@]}")
+  CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS emconfigure ./autogen.sh "${CONF_FLAGS[@]}")
 emmake make -C $LIB_PATH clean
 emmake make -C $LIB_PATH install -j

@@ -38,6 +38,7 @@ const runFFmpeg = async (ifilename, data, args, ofilename) => {
       console.log(m);
     },
     print: (m) => {
+      console.log(m);
       if (m.startsWith('FFMPEG_END')) {
         resolve();
       }

@@ -4,7 +4,7 @@ const { TIMEOUT } = require('./config');
 const { runFFmpeg } = require('./utils');
 const IN_FILE_NAME = 'audio-1s.wav';
 const OUT_FILE_NAME = 'audio.ogg';
-const OGG_SIZE = 4239;
+const OGG_SIZE = 7712;
 let wavData = null;
 
 beforeAll(() => {

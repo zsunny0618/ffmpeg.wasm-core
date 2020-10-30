@@ -52,13 +52,15 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --enable-libwavpack     # enable libwavpack
   --enable-libmp3lame     # enable libmp3lame
   --enable-libfdk-aac     # enable libfdk-aac
-  # --enable-libvorbis      # enable libvorbis
+  --enable-libtheora      # enable libtheora
+  --enable-libvorbis      # enable libvorbis
   --disable-debug         # disable debug info, required by closure
   --disable-runtime-cpudetect   # disable runtime cpu detect
   --disable-autodetect    # disable external libraries auto detect
   --extra-cflags="$CFLAGS"
   --extra-cxxflags="$CFLAGS"
   --extra-ldflags="$LDFLAGS"
+  --pkg-config-flags="--static"
   --nm="llvm-nm"
   --ar=emar
   --as=llvm-as
