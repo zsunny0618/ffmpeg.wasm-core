@@ -47,20 +47,27 @@ $ npm test
 
 #### Base
 
-- Emscripten: 2.0.8
-- FFmpeg: 4.3.1
+| Library/Tool Name | Version | Remark |
+| ----------------- | ------- | ------ |
+| Emscripten | 2.0.8 | |
+| FFmpeg | 4.3.1 | |
 
 #### Video
 
-- x264 (mp4): 0.160.x
-- x265 (mp4): 3.4 (only works with `-pix_fmt yuv420p10le` and `-pix_fmt yuv420p12le`)
-- libvpx (webm): 1.9.0
-- theora (ogv): 1.1.1
+| Library/Tool Name | Version | Remark |
+| ----------------- | ------- | ------ |
+| x264 | 0.160.x | mp4 format |
+| x265 | 3.4 | mp4 format, only works with `-pix_fmt yuv420p10le` and `-pix_fmt yuv420p12le` |
+| libvpx | 1.9.0 | webm format |
+| theora | 1.1.1 | ogv format |
+| aom | 1.0.0 | mkv format, extremely slow, not recommended to use |
 
 #### Audio
 
-- wavpack (wav): 5.3.0
-- lame (mp3): 3.100
-- fdk-aac (aac); 2.0.1
-- ogg: 1.3.4
-- vorbis (ogg): 1.3.6
+| Library/Tool Name | Version | Remark |
+| ----------------- | ------- | ------ |
+| wavpack | 5.3.0 | wav/wv format |
+| lame | 3.100 | mp3 format |
+| fdk-aac | 2.0.1 | aac format |
+| ogg | 1.3.4 | required by vorbis |
+| vorbis | 1.3.6 | ogg format |
