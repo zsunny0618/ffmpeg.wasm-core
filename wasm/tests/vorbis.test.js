@@ -4,7 +4,7 @@ const { TIMEOUT } = require('./config');
 const { runFFmpeg } = require('./utils');
 const IN_FILE_NAME = 'audio-1s.wav';
 const OUT_FILE_NAME = 'audio.ogg';
-const OGG_SIZE = 7712;
+const FILE_SIZE = 7712;
 let wavData = null;
 
 beforeAll(() => {
@@ -14,5 +14,5 @@ beforeAll(() => {
 test('convert wav to aac', async () => {
   const args = ['-i', IN_FILE_NAME, '-c:a', 'libvorbis', OUT_FILE_NAME];
   const { fileSize } = await runFFmpeg(IN_FILE_NAME, wavData, args, OUT_FILE_NAME);
-  expect(fileSize).toBe(OGG_SIZE);
+  expect(fileSize).toBe(FILE_SIZE);
 }, TIMEOUT);

@@ -4,7 +4,7 @@ const { TIMEOUT } = require('./config');
 const { runFFmpeg } = require('./utils');
 const IN_FILE_NAME = 'video-1s.avi';
 const OUT_FILE_NAME = 'video.ogv';
-const OGV_SIZE = 29561;
+const FILE_SIZE = 29561;
 let aviData = null;
 
 beforeAll(() => {
@@ -14,5 +14,5 @@ beforeAll(() => {
 test('convert avi to ogv', async () => {
   const args = ['-i', IN_FILE_NAME, '-c:v', 'libtheora', OUT_FILE_NAME];
   const { fileSize } = await runFFmpeg(IN_FILE_NAME, aviData, args, OUT_FILE_NAME);
-  expect(fileSize).toBe(OGV_SIZE);
+  expect(fileSize).toBe(FILE_SIZE);
 }, TIMEOUT);

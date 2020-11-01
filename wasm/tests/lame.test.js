@@ -4,7 +4,7 @@ const { TIMEOUT } = require('./config');
 const { runFFmpeg } = require('./utils');
 const IN_FILE_NAME = 'audio-1s.wav';
 const OUT_FILE_NAME = 'audio.mp3';
-const MP3_SIZE = 4039;
+const FILE_SIZE = 4039;
 let wavData = null;
 
 beforeAll(() => {
@@ -14,5 +14,5 @@ beforeAll(() => {
 test('convert wav to mp3', async () => {
   const args = ['-i', IN_FILE_NAME, OUT_FILE_NAME];
   const { fileSize } = await runFFmpeg(IN_FILE_NAME, wavData, args, OUT_FILE_NAME);
-  expect(fileSize).toBe(MP3_SIZE);
+  expect(fileSize).toBe(FILE_SIZE);
 }, TIMEOUT);

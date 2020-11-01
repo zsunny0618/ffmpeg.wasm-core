@@ -4,7 +4,7 @@ const { TIMEOUT } = require('./config');
 const { runFFmpeg } = require('./utils');
 const IN_FILE_NAME = 'audio-1s.wav';
 const OUT_FILE_NAME = 'audio.aac';
-const AAC_SIZE = 4239;
+const FILE_SIZE = 4239;
 let wavData = null;
 
 beforeAll(() => {
@@ -14,5 +14,5 @@ beforeAll(() => {
 test('convert wav to aac', async () => {
   const args = ['-i', IN_FILE_NAME, '-c:a', 'libfdk_aac', OUT_FILE_NAME];
   const { fileSize } = await runFFmpeg(IN_FILE_NAME, wavData, args, OUT_FILE_NAME);
-  expect(fileSize).toBe(AAC_SIZE);
+  expect(fileSize).toBe(FILE_SIZE);
 }, TIMEOUT);
