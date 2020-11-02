@@ -15,7 +15,7 @@ const ffmpeg = (Core, args) => {
     'proxy_main',
     'number',
     ['number', 'number'],
-    parseArgs(Core, ['ffmpeg', '-nostdin', ...args]),
+    parseArgs(Core, ['ffmpeg', '-hide_banner', '-nostdin', ...args]),
   );
 };
 
@@ -44,4 +44,5 @@ const runFFmpeg = async (ifilename, data, args, ofilename) => {
 
 module.exports = {
   runFFmpeg,
+  ffmpeg,
 };
