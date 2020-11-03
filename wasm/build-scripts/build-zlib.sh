@@ -10,7 +10,7 @@ CM_FLAGS=(
   -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE
   -DBUILD_SHARED_LIBS=OFF
 )
-echo "CM_FLAGS=${CONF_FLAGS[@]}"
+echo "CM_FLAGS=${CM_FLAGS[@]}"
 
 cd $LIB_PATH
 rm -rf build zconf.h
