@@ -12,6 +12,7 @@ FLAGS=(
   -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lx264 -lx265 -lvpx -lwavpack -lmp3lame -lfdk-aac -lvorbis -lvorbisenc -lvorbisfile -logg -ltheora -ltheoraenc -ltheoradec -lz -pthread
   fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c
   -o wasm/dist/ffmpeg-core.js
+  --pre-js wasm/src/prepend.js                  # fix worker script issue
   -s USE_SDL=2                                  # use SDL2
   -s USE_PTHREADS=1                             # enable pthreads support
   -s PROXY_TO_PTHREAD=1                         # detach main() from browser/UI main thread
