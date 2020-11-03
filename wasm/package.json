@@ -6,6 +6,11 @@
   "scripts": {
     "test": "node --experimental-wasm-threads --experimental-wasm-bulk-memory ./node_modules/.bin/jest"
   },
+  "files": [
+    "dist",
+    "package.json",
+    "package-lock.json"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ffmpegwasm/FFmpeg.git"
