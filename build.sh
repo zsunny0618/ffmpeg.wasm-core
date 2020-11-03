@@ -8,6 +8,8 @@ SCRIPT_ROOT=$(dirname $0)/wasm/build-scripts
 emcc -v
 # install dependencies
 $SCRIPT_ROOT/install-deps.sh
+# build zlib
+$SCRIPT_ROOT/build-zlib.sh
 # build x264
 $SCRIPT_ROOT/build-x264.sh
 # build x265
