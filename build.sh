@@ -29,7 +29,7 @@ $SCRIPT_ROOT/build-vorbis.sh
 # build theora
 $SCRIPT_ROOT/build-theora.sh
 # build aom (disabled as it is extremely slow)
-# $SCRIPT_ROOT/build-aom.sh
+$SCRIPT_ROOT/build-aom.sh
 # configure FFmpeg with Emscripten
 $SCRIPT_ROOT/configure-ffmpeg.sh
 # build ffmpeg.wasm core

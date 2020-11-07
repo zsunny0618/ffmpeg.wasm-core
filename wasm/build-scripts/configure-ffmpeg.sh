@@ -16,7 +16,7 @@ FLAGS=(
   --enable-libfdk-aac     # enable libfdk-aac
   --enable-libtheora      # enable libtheora
   --enable-libvorbis      # enable libvorbis
-  # --enable-libaom         # enable libaom
+  --enable-libaom         # enable libaom
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
 emconfigure ./configure "${FLAGS[@]}"
