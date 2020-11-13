@@ -28,6 +28,8 @@ $SCRIPT_ROOT/build-ogg.sh
 $SCRIPT_ROOT/build-vorbis.sh
 # build theora
 $SCRIPT_ROOT/build-theora.sh
+# build opus
+$SCRIPT_ROOT/build-opus.sh
 # build freetype2
 $SCRIPT_ROOT/build-freetype2.sh
 # build aom (disabled as it is extremely slow)
