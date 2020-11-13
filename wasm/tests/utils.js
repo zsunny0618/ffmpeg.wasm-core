@@ -19,7 +19,7 @@ const ffmpeg = (Core, args) => {
   );
 };
 
-const runFFmpeg = async (ifilename, data, args, ofilename) => {
+const runFFmpeg = async (ifilename, data, args, ofilename, extraFiles = []) => {
   let resolve = null;
   let file = null;
   let fileSize = -1;
@@ -30,6 +30,9 @@ const runFFmpeg = async (ifilename, data, args, ofilename) => {
         resolve();
       }
     },
+  });
+  extraFiles.forEach(({ name, data: d }) => {
+    Core.FS.writeFile(name, d);
   });
   Core.FS.writeFile(ifilename, data);
   ffmpeg(Core, args);
@@ -42,7 +45,10 @@ const runFFmpeg = async (ifilename, data, args, ofilename) => {
   return { Core, file, fileSize };
 };
 
+const b64ToUint8Array = (str) => (Buffer.from(str, 'base64'));
+
 module.exports = {
   runFFmpeg,
+  b64ToUint8Array,
   ffmpeg,
 };
