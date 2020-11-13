@@ -28,6 +28,8 @@ $SCRIPT_ROOT/build-ogg.sh
 $SCRIPT_ROOT/build-vorbis.sh
 # build theora
 $SCRIPT_ROOT/build-theora.sh
+# build freetype2
+$SCRIPT_ROOT/build-freetype2.sh
 # build aom (disabled as it is extremely slow)
 # $SCRIPT_ROOT/build-aom.sh
 # configure FFmpeg with Emscripten
