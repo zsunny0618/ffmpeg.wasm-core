@@ -30,7 +30,7 @@ const ffmpeg = (Core, args) => {
   );
 };
 
-const runFFmpeg = async (ifilename, data, args, ofilename) => {
+const runFFmpeg = async (ifilename, data, args, ofilename, extraFiles = []) => {
   let resolve = null;
   let file = null;
   const Core = await createFFmpegCore({
@@ -44,6 +44,9 @@ const runFFmpeg = async (ifilename, data, args, ofilename) => {
       }
     },
   });
+  extraFiles.forEach(({ name, data: d }) => {
+    Core.FS.writeFile(name, d);
+  });
   Core.FS.writeFile(ifilename, data);
   ffmpeg(Core, args);
   await new Promise((_resolve) => { resolve = _resolve });
@@ -53,3 +56,5 @@ const runFFmpeg = async (ifilename, data, args, ofilename) => {
   }
   return { Core, file };
 };
+
+const b64ToUint8Array = (str) => (Uint8Array.from(atob(str), c => c.charCodeAt(0)));
