@@ -77,3 +77,10 @@ $ npm test
 | fdk-aac | 2.0.1 | aac format |
 | ogg | 1.3.4 | required by vorbis |
 | vorbis | 1.3.6 | ogg format |
+| opus | 1.3.1 | opus format |
+
+#### Others
+
+| Library/Tool Name | Version | Remark |
+| ----------------- | ------- | ------ |
+| freetype2 | 2.10.4 | font file support |
