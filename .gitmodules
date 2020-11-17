@@ -34,3 +34,9 @@
 [submodule "third_party/zlib"]
 	path = third_party/zlib
 	url = https://github.com/ffmpegwasm/zlib
+[submodule "third_party/freetype2"]
+	path = third_party/freetype2
+	url = https://github.com/ffmpegwasm/freetype2
+[submodule "third_party/opus"]
+	path = third_party/opus
+	url = https://github.com/ffmpegwasm/opus
