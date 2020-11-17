@@ -1,6 +1,6 @@
 {
   "name": "@ffmpeg/core",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "ffmpeg.wasm core",
   "main": "dist/ffmpeg-core.js",
   "scripts": {
