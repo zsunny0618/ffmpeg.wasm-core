@@ -25,7 +25,7 @@ jobs:
           bash build-with-docker.sh
       - uses: actions/upload-artifact@master
         with:
-          name: ffmpeg-core-linux
+          name: ffmpeg-core
           path: wasm/dist
   # Disable macos build due to there is no ldconfig command
   # during freetype2 build.
