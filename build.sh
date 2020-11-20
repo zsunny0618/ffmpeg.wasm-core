@@ -32,6 +32,8 @@ $SCRIPT_ROOT/build-theora.sh
 $SCRIPT_ROOT/build-opus.sh
 # build freetype2
 $SCRIPT_ROOT/build-freetype2.sh
+# build libwebp
+$SCRIPT_ROOT/build-libwebp.sh
 # build aom (disabled as it is extremely slow)
 # $SCRIPT_ROOT/build-aom.sh
 # configure FFmpeg with Emscripten

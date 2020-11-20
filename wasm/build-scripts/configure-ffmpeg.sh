@@ -18,6 +18,7 @@ FLAGS=(
   --enable-libvorbis      # enable libvorbis
   --enable-libfreetype    # enable freetype
   --enable-libopus        # enable opus
+  --enable-libwebp        # enable libwebp
   # --enable-libaom         # enable libaom
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
