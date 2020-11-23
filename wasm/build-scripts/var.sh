@@ -53,7 +53,6 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --pkg-config-flags="--static"
   --nm="llvm-nm"
   --ar=emar
-  --as=llvm-as
   --ranlib=emranlib
   --cc=emcc
   --cxx=em++
