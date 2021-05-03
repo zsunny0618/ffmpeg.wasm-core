@@ -42,7 +42,6 @@ test('transcode avi to x264 mp4 with *.srt subtitle', async () => {
 
 test('transcode avi to x264 mp4 with *.ass subtitle', async () => {
   const args = ['-i', IN_FILE_NAME, '-vf', 'ass=test.ass:fontsdir=/fonts', OUT_FILE_NAME];
-  const { fileSize, file } = await runFFmpeg(IN_FILE_NAME, aviData, args, OUT_FILE_NAME, [{ name: '/fonts/arial.ttf', data: b64ToUint8Array(ARIAL_TTF) }, { name: 'test.ass', data: ASS_FILE }], ['/fonts']);
-  fs.writeFileSync('subtitle.mp4', file);
+  const { fileSize } = await runFFmpeg(IN_FILE_NAME, aviData, args, OUT_FILE_NAME, [{ name: '/fonts/arial.ttf', data: b64ToUint8Array(ARIAL_TTF) }, { name: 'test.ass', data: ASS_FILE }], ['/fonts']);
   expect(fileSize).toBe(MP4_WITH_ASS_FILE_SIZE);
 }, TIMEOUT);
