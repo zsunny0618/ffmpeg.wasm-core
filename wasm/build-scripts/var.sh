@@ -30,6 +30,9 @@ ROOT_DIR=$PWD
 # Directory to install headers and libraries
 BUILD_DIR=$ROOT_DIR/build
 
+# Directory to look for pkgconfig files
+EM_PKG_CONFIG_PATH=$BUILD_DIR/lib/pkgconfig
+
 # Toolchain file path for cmake
 TOOLCHAIN_FILE=$EMSDK/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake
 
@@ -58,8 +61,6 @@ FFMPEG_CONFIG_FLAGS_BASE=(
   --cxx=em++
   --objcc=emcc
   --dep-cc=emcc
-  --enable-libass
-  --enable-filter=subtitles,overlay
 )
 
 echo "EMSDK=$EMSDK"

@@ -11,13 +11,10 @@ CONF_FLAGS=(
   --enable-shared=no                                  # not to build shared library
   --enable-static 
   --disable-dependency-tracking
-	--disable-debug
-	--without-glib
-  --disable-docs
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && \
   emconfigure ./autogen.sh && \
   CFLAGS=$CFLAGS emconfigure ./configure "${CONF_FLAGS[@]}")
 emmake make -C $LIB_PATH clean
-emmake make -C $LIB_PATH install -j1
+emmake make -C $LIB_PATH install -j

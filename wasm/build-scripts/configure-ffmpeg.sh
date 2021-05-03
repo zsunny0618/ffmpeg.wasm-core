@@ -3,7 +3,6 @@
 set -euo pipefail
 source $(dirname $0)/var.sh
 
-FFMPEG_WEBM_PC_PATH="$BUILD_DIR/lib/pkgconfig"
 FLAGS=(
   "${FFMPEG_CONFIG_FLAGS_BASE[@]}"
   --enable-gpl            # required by x264
@@ -20,7 +19,10 @@ FLAGS=(
   --enable-libfreetype    # enable freetype
   --enable-libopus        # enable opus
   --enable-libwebp        # enable libwebp
+  --enable-libass         # enable libass
+  --enable-libfribidi     # enable libfribidi
+  # --enable-filter=subtitles,overlay
   # --enable-libaom         # enable libaom
 )
 echo "FFMPEG_CONFIG_FLAGS=${FLAGS[@]}"
-EM_PKG_CONFIG_PATH=${FFMPEG_WEBM_PC_PATH} emconfigure ./configure "${FLAGS[@]}"
+EM_PKG_CONFIG_PATH=${EM_PKG_CONFIG_PATH} emconfigure ./configure "${FLAGS[@]}"

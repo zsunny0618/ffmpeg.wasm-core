@@ -19,7 +19,7 @@ const ffmpeg = (Core, args) => {
   );
 };
 
-const runFFmpeg = async (ifilename, data, args, ofilename, extraFiles = []) => {
+const runFFmpeg = async (ifilename, data, args, ofilename, extraFiles = [], extraFolders = []) => {
   let resolve = null;
   let file = null;
   let fileSize = -1;
@@ -30,6 +30,9 @@ const runFFmpeg = async (ifilename, data, args, ofilename, extraFiles = []) => {
         resolve();
       }
     },
+  });
+  extraFolders.forEach((f) => {
+    Core.FS.mkdir(f);
   });
   extraFiles.forEach(({ name, data: d }) => {
     Core.FS.writeFile(name, d);
