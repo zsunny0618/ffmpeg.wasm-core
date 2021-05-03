@@ -12,6 +12,7 @@ CONF_FLAGS=(
   --enable-static 
   --disable-dependency-tracking
   --disable-debug
+  --disable-docs
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && \
