@@ -11,6 +11,7 @@ CONF_FLAGS=(
   --enable-shared=no                                  # not to build shared library
   --enable-static 
   --disable-dependency-tracking
+  --disable-debug
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && \
