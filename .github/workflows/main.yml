@@ -22,6 +22,7 @@ jobs:
       - name: Build FFMpeg
         shell: bash
         run: |
+          docker system prune -f  # fix `Too many levels of symbolic links` error
           bash build-with-docker.sh
       - uses: actions/upload-artifact@master
         with:
