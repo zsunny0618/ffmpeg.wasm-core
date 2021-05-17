@@ -19,7 +19,7 @@ const ffmpeg = (Core, args) => {
   );
 };
 
-const runFFmpeg = async (ifilename, data, args, ofilename, extraFiles = [], extraFolders = []) => {
+const runFFmpeg = async (ifilename, data, args, ofilename, extraFiles = [], extraFolders = [], msBeforeExit = -1) => {
   let resolve = null;
   let file = null;
   let fileSize = -1;
@@ -39,6 +39,12 @@ const runFFmpeg = async (ifilename, data, args, ofilename, extraFiles = [], extr
   });
   Core.FS.writeFile(ifilename, data);
   ffmpeg(Core, args);
+  if (msBeforeExit !== -1) {
+    setTimeout(() => {
+      Core.exit();
+      resolve();
+    }, msBeforeExit);
+  }
   await new Promise((_resolve) => { resolve = _resolve });
   if (typeof ofilename !== 'undefined') {
     file = Core.FS.readFile(ofilename);
