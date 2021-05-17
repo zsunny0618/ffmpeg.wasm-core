@@ -13,6 +13,6 @@ CONF_FLAGS=(
   --extra-cflags="-c -s USE_PTHREADS=1 $OPTIM_FLAGS"  # flags to use pthread and code optimization
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
-(cd $LIB_PATH && emconfigure ./configure "${CONF_FLAGS[@]}")
-emmake make -C $LIB_PATH clean
+(cd $LIB_PATH && emconfigure ./configure -C "${CONF_FLAGS[@]}")
 emmake make -C $LIB_PATH install-lib-static -j
+emmake make -C $LIB_PATH clean

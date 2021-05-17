@@ -68,4 +68,8 @@ EOF
 
 cp libx265.a $BUILD_DIR/lib
 
+emmake make -C . clean
+emmake make -C ../10bit clean
+emmake make -C ../12bit clean
+
 cd $ROOT_DIR

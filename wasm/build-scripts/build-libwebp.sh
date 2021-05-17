@@ -28,6 +28,6 @@ cd $LIB_PATH
 mkdir -p build
 cd build
 emmake cmake .. -DCMAKE_C_FLAGS="$CXXFLAGS" ${CM_FLAGS[@]}
-emmake make clean
 emmake make install
+emmake make clean
 cd $ROOT_DIR

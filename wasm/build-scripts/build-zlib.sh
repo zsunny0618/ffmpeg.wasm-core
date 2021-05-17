@@ -9,6 +9,7 @@ CM_FLAGS=(
   -DCMAKE_INSTALL_PREFIX=$BUILD_DIR
   -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE
   -DBUILD_SHARED_LIBS=OFF
+  -DSKIP_INSTALL_FILES=ON
 )
 echo "CM_FLAGS=${CM_FLAGS[@]}"
 
@@ -17,6 +18,6 @@ rm -rf build zconf.h
 mkdir -p build
 cd build
 emmake cmake .. -DCMAKE_C_FLAGS="$CXXFLAGS" ${CM_FLAGS[@]}
-emmake make clean
 emmake make install
+emmake make clean
 cd $ROOT_DIR

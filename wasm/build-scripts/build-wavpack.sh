@@ -15,8 +15,10 @@ CONF_FLAGS=(
   --disable-dsd                                        # disalbe legacy
   --enable-legacy                                      # enable compability for old version of wav
   --disable-shared                                     # enable building static library
+  --disable-dependency-tracking                        # speed up one-time build
+  --disable-maintainer-mode
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
-(cd $LIB_PATH && CFLAGS=$CFLAGS emconfigure ./autogen.sh "${CONF_FLAGS[@]}")
-emmake make -C $LIB_PATH clean
+(cd $LIB_PATH && CFLAGS=$CFLAGS emconfigure ./autogen.sh -C "${CONF_FLAGS[@]}")
 emmake make -C $LIB_PATH install -j
+emmake make -C $LIB_PATH clean

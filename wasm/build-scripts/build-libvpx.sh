@@ -13,10 +13,11 @@ CONF_FLAGS=(
   --disable-tools                                    # not to build tools
   --disable-docs                                     # not to build docs
   --disable-unit-tests                               # not to do unit tests
+  --disable-dependency-tracking                      # speed up one-time build
   --extra-cflags="$FLAGS"                            # flags to use pthread and code optimization
   --extra-cxxflags="$FLAGS"                          # flags to use pthread and code optimization
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && LDFLAGS="$FLAGS" STRIP="llvm-strip" emconfigure ./configure "${CONF_FLAGS[@]}")
-emmake make -C $LIB_PATH clean
 emmake make -C $LIB_PATH install -j
+emmake make -C $LIB_PATH clean

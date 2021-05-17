@@ -11,8 +11,10 @@ CONF_FLAGS=(
   --disable-shared                                    # disable shared library
   --disable-frontend                                  # exclude lame executable
   --disable-analyzer-hooks                            # exclude analyzer hooks
+  --disable-dependency-tracking                       # speed up one-time build
+  --disable-gtktest
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && CFLAGS=$CFLAGS emconfigure ./configure "${CONF_FLAGS[@]}")
-emmake make -C $LIB_PATH clean
 emmake make -C $LIB_PATH install -j
+emmake make -C $LIB_PATH clean

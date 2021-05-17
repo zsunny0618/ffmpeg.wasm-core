@@ -14,12 +14,11 @@ CONF_FLAGS=(
   --enable-examples=no
   --enable-fast-install=no
   --disable-oggtest                                   # disable oggtests
+  --disable-dependency-tracking                       # speed up one-time build
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && \
   emconfigure ./autogen.sh && \
-  CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS emconfigure ./configure "${CONF_FLAGS[@]}")
-# (cd $LIB_PATH && \
-#   CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS emconfigure ./autogen.sh "${CONF_FLAGS[@]}")
-emmake make -C $LIB_PATH clean
+  CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS emconfigure ./configure -C "${CONF_FLAGS[@]}")
 emmake make -C $LIB_PATH install -j
+emmake make -C $LIB_PATH clean
