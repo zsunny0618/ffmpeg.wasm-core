@@ -9,10 +9,9 @@ CONF_FLAGS=(
   --prefix=$BUILD_DIR                                 # install library in a build directory for FFmpeg to include
   --host=i686-gnu                                     # use i686 linux
   --enable-shared=no                                  # not to build shared library
-  --enable-static 
+  --enable-static=yes
   --disable-dependency-tracking
   --disable-debug
-  --disable-docs
 )
 echo "CONF_FLAGS=${CONF_FLAGS[@]}"
 (cd $LIB_PATH && \
