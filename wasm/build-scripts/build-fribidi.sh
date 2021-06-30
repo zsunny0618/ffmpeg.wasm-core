@@ -18,4 +18,5 @@ echo "CONF_FLAGS=${CONF_FLAGS[@]}"
   emconfigure ./autogen.sh && \
   CFLAGS=$CFLAGS emconfigure ./configure -C "${CONF_FLAGS[@]}")
 emmake make -C $LIB_PATH install -j || true
+cp $LIB_PATH/fribidi.pc $BUILD_DIR/lib/pkgconfig
 emmake make -C $LIB_PATH clean
