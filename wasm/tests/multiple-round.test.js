@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const createFFmpegCore = require('../dist/ffmpeg-core');
+const createFFmpegCore = require('../packages/core/dist/ffmpeg-core');
 const { TIMEOUT } = require('./config');
 const { runFFmpeg, ffmpeg } = require('./utils');
 const IN_FILE_NAME = 'video-1s.avi';

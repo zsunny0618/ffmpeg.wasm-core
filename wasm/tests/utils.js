@@ -1,4 +1,4 @@
-const createFFmpegCore = require('../dist/ffmpeg-core');
+const createFFmpegCore = require('../packages/core/dist/ffmpeg-core');
 
 const parseArgs = (Core, args) => {
   const argsPtr = Core._malloc(args.length * Uint32Array.BYTES_PER_ELEMENT);
