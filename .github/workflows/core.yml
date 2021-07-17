@@ -1,6 +1,4 @@
-name: FFmpeg.wasm
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+name: Build FFmpeg.wasm
 on:
   push:
     branches: [ n4.3.1-wasm ]
@@ -17,17 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
           submodules: recursive
       - name: Build FFMpeg
         shell: bash
         run: |
-          docker system prune -f  # fix `Too many levels of symbolic links` error
           bash build-with-docker.sh
       - uses: actions/upload-artifact@master
         with:
           name: ffmpeg-core
-          path: wasm/dist
+          path: wasm/packages/core/dist
   # Disable macos build due to there is no ldconfig command
   # during freetype2 build.
   # macos-build:

@@ -1,0 +1,26 @@
+name: Build FFmpeg.wasm (Single Thread)
+on:
+  push:
+    branches: [ n4.3.1-wasm ]
+  pull_request:
+    branches: [ n4.3.1-wasm ]
+
+env:
+  EM_VERSION: 2.0.8
+  EM_CACHE_FOLDER: 'emsdk-cache'
+
+jobs:
+  linux-build_with_docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Build FFMpeg
+        shell: bash
+        run: |
+          FFMPEG_ST=yes bash build-with-docker.sh
+      - uses: actions/upload-artifact@master
+        with:
+          name: ffmpeg-core
+          path: wasm/packages/core-st/dist
