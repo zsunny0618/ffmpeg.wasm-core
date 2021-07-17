@@ -30,10 +30,10 @@ $SCRIPT_ROOT/build-vorbis.sh
 $SCRIPT_ROOT/build-theora.sh
 # build opus
 $SCRIPT_ROOT/build-opus.sh
-# build freetype2
-$SCRIPT_ROOT/build-freetype2.sh
 # build libwebp
 $SCRIPT_ROOT/build-libwebp.sh
+# build freetype2
+$SCRIPT_ROOT/build-freetype2.sh
 # build fribidi
 $SCRIPT_ROOT/build-fribidi.sh
 # build harfbuzz

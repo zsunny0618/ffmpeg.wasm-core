@@ -4,7 +4,6 @@ set -euo pipefail
 source $(dirname $0)/var.sh
 
 LIB_PATH=third_party/x265/source
-CXXFLAGS="-s USE_PTHREADS=1 $OPTIM_FLAGS"
 BASE_FLAGS=(
   -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE
   -DENABLE_LIBNUMA=OFF
@@ -42,16 +41,19 @@ mkdir -p main 10bit 12bit
 
 cd 12bit
 emmake cmake ../.. -DCMAKE_CXX_FLAGS="$CXXFLAGS" ${FLAGS_12BIT[@]}
+emmake make clean
 emmake make -j
 
 cd ../10bit 
 emmake cmake ../.. -DCMAKE_CXX_FLAGS="$CXXFLAGS" ${FLAGS_10BIT[@]}
+emmake make clean
 emmake make -j
 
 cd ../main
 ln -sf ../10bit/libx265.a libx265_main10.a
 ln -sf ../12bit/libx265.a libx265_main12.a
 emmake cmake ../.. -DCMAKE_CXX_FLAGS="$CXXFLAGS" ${FLAGS_MAIN[@]}
+emmake make clean
 emmake make install -j
 
 mv libx265.a libx265_main.a
@@ -67,9 +69,5 @@ END
 EOF
 
 cp libx265.a $BUILD_DIR/lib
-
-emmake make -C . clean
-emmake make -C ../10bit clean
-emmake make -C ../12bit clean
 
 cd $ROOT_DIR
