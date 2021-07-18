@@ -7,9 +7,12 @@ on:
     branches:
       - n4.3.1-wasm
 
-# env:
-#   EM_VERSION: 2.0.8
-#   EM_CACHE_FOLDER: 'emsdk-cache'
+env:
+  FFMPEG_ST: no
+  DIST_PATH: wasm/packages/core/dist
+  CACHE_KEY_PREFIX: ffmpeg.wasm-core-$GITHUB_RUN_ID
+  # EM_VERSION: 2.0.8
+  # EM_CACHE_FOLDER: 'emsdk-cache'
 
 jobs:
   build-libs:
@@ -44,7 +47,9 @@ jobs:
           path: |
             build
             wasm/cache
-          key: ffmpeg.wasm-core
+          key: $CACHE_KEY_PREFIX-$GITHUB_JOB
+          restore-keys: |
+            $CACHE_KEY_PREFIX-
       - name: List cached libs
         run: ls build/lib
       - name: Build FFMpeg Libs
@@ -62,7 +67,11 @@ jobs:
           path: |
             build
             wasm/cache
-          key: ffmpeg.wasm-core
+          key: $CACHE_KEY_PREFIX-$GITHUB_JOB
+          restore-keys: |
+            $CACHE_KEY_PREFIX-
+      - name: List cached libs
+        run: ls build/lib
       - name: Build FFMpeg
         run: |
           bash build-with-docker.sh \
@@ -72,7 +81,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: ffmpeg-core
-          path: wasm/packages/core/dist
+          path: $DIST_PATH
 
   # Disable macos build due to there is no ldconfig command
   # during freetype2 build.
