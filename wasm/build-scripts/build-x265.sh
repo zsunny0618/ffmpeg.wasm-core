@@ -66,8 +66,12 @@ ADDLIB libx265_main12.a
 SAVE
 END
 EOF
-emmake make install
-# BUG: In Github Actions, it is required to copy it manually
-cp x265.pc $BUILD_DIR/lib/pkgconfig
+emmake make install -j
+
+# BUG: In Github Actions, x265.pc is not generated,
+# so we need to copy one manually
+cp $ROOT_DIR/wasm/patches/x265.pc $BUILD_DIR/lib/pkgconfig
+cp x265.pc $BUILD_DIR/lib/pkgconfig || true
+cp x265.pc $ROOT_DIR/wasm/patches || true
 
 cd $ROOT_DIR
