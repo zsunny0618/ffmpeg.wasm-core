@@ -10,7 +10,7 @@ on:
 env:
   FFMPEG_ST: no
   DIST_PATH: wasm/packages/core/dist
-  CACHE_KEY_PREFIX: ffmpeg.wasm-core-$GITHUB_RUN_ID
+  CACHE_KEY_PREFIX: ffmpeg.wasm-core
   # EM_VERSION: 2.0.8
   # EM_CACHE_FOLDER: 'emsdk-cache'
 
@@ -47,9 +47,9 @@ jobs:
           path: |
             build
             wasm/cache
-          key: ${{ env.CACHE_KEY_PREFIX }}-${{ matrix.script }}
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ env.GITHUB_RUN_ID }}-${{ matrix.script }}
           restore-keys: |
-            ${{ env.CACHE_KEY_PREFIX }}-
+            ${{ env.CACHE_KEY_PREFIX }}-${{ env.GITHUB_RUN_ID }}-
       - name: List cached libs
         run: ls build/lib || true
       - name: Build FFMpeg Libs
@@ -67,9 +67,9 @@ jobs:
           path: |
             build
             wasm/cache
-          key: ${{ env.CACHE_KEY_PREFIX }}-ffmpeg
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ env.GITHUB_RUN_ID }}-ffmpeg
           restore-keys: |
-            ${{ env.CACHE_KEY_PREFIX }}-
+            ${{ env.CACHE_KEY_PREFIX }}-${{ env.GITHUB_RUN_ID }}-
       - name: List cached libs
         run: ls build/lib || true
       - name: Build FFMpeg
