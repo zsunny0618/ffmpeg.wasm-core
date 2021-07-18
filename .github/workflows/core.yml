@@ -49,6 +49,7 @@ jobs:
           key: ffmpeg.wasm-core
   build-ffmpeg:
     runs-on: ubuntu-latest
+    needs: build-libs
     steps:
       - uses: actions/checkout@v2
         with:
