@@ -41,17 +41,19 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
+      - name: Get commit hash
+        id: get-commit-hash
+        run: |
+          echo "::set-output name=hash::$(git rev-parse --short HEAD)"
       - name: Cache libs
         uses: actions/cache@v2
-        env:
-          GIT_HASH: $(git rev-parse --short HEAD)
         with:
           path: |
             build
             wasm/cache
-          key: ${{ env.CACHE_KEY_PREFIX }}-${{ env.GIT_HASH }}-${{ matrix.script }}
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-${{ matrix.script }}
           restore-keys: |
-            ${{ env.CACHE_KEY_PREFIX }}-${{ env.GIT_HASH }}-
+            ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-
       - name: List cached libs
         run: ls build/lib || true
       - name: Build FFMpeg Libs
@@ -63,6 +65,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
+      - name: Get commit hash
+        id: get-commit-hash
+        run: |
+          echo "::set-output name=hash::$(git rev-parse --short HEAD)"
       - name: Cache multiple paths
         uses: actions/cache@v2
         env:
@@ -71,9 +77,9 @@ jobs:
           path: |
             build
             wasm/cache
-          key: ${{ env.CACHE_KEY_PREFIX }}-${{ env.GIT_HASH }}-ffmpeg
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-ffmpeg
           restore-keys: |
-            ${{ env.CACHE_KEY_PREFIX }}-${{ env.GIT_HASH }}-
+            ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-
       - name: List cached libs
         run: ls build/lib || true
       - name: Build FFMpeg
