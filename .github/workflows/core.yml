@@ -1,16 +1,25 @@
 name: Build FFmpeg.wasm
 on:
   push:
-    branches: [ n4.3.1-wasm ]
+    branches:
+      - n4.3.1-wasm
   pull_request:
-    branches: [ n4.3.1-wasm ]
+    branches:
+      - n4.3.1-wasm
 
-env:
-  EM_VERSION: 2.0.8
-  EM_CACHE_FOLDER: 'emsdk-cache'
+# env:
+#   EM_VERSION: 2.0.8
+#   EM_CACHE_FOLDER: 'emsdk-cache'
 
 jobs:
-  linux-build_with_docker:
+  build-libs:
+    strategy:
+      max-parallel: 1
+      matrix:
+        script:
+          - build-zlib
+          - build-x264
+          - build-x265
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,12 +27,12 @@ jobs:
           submodules: recursive
       - name: Build FFMpeg
         shell: bash
-        run: |
-          bash build-with-docker.sh
-      - uses: actions/upload-artifact@master
-        with:
-          name: ffmpeg-core
-          path: wasm/packages/core/dist
+        run: bash build-with-docker.sh install-deps ${{ matrix.script }}
+      # - uses: actions/upload-artifact@master
+      #   with:
+      #     name: ffmpeg-core
+      #     path: wasm/packages/core/dist
+
   # Disable macos build due to there is no ldconfig command
   # during freetype2 build.
   # macos-build:
