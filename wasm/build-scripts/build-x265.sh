@@ -67,6 +67,7 @@ SAVE
 END
 EOF
 emmake make install
-
+# BUG: In Github Actions, it is required to copy it manually
+cp x265.pc $BUILD_DIR/lib/pkgconfig
 
 cd $ROOT_DIR
