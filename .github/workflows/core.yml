@@ -47,9 +47,9 @@ jobs:
           path: |
             build
             wasm/cache
-          key: $CACHE_KEY_PREFIX-$GITHUB_JOB
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ matrix.script }}
           restore-keys: |
-            $CACHE_KEY_PREFIX-
+            ${{ env.CACHE_KEY_PREFIX }}-
       - name: List cached libs
         run: ls build/lib || true
       - name: Build FFMpeg Libs
@@ -67,9 +67,9 @@ jobs:
           path: |
             build
             wasm/cache
-          key: $CACHE_KEY_PREFIX-$GITHUB_JOB
+          key: ${{ env.CACHE_KEY_PREFIX }}-ffmpeg
           restore-keys: |
-            $CACHE_KEY_PREFIX-
+            ${{ env.CACHE_KEY_PREFIX }}-
       - name: List cached libs
         run: ls build/lib || true
       - name: Build FFMpeg
