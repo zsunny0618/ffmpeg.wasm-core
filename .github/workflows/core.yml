@@ -20,18 +20,56 @@ jobs:
           - build-zlib
           - build-x264
           - build-x265
+          - build-libvpx
+          - build-wavpack
+          - build-lame
+          - build-fdk-aac
+          - build-ogg
+          - build-vorbis
+          - build-theora
+          - build-opus
+          - build-libwebp
+          - build-freetype2
+          - build-fribidi
+          - build-harfbuzz
+          - build-libass
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Build FFMpeg Libs
+        run: bash build-with-docker.sh install-deps ${{ matrix.script }}
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+          path: |
+            build
+            wasm/cache
+          key: ffmpeg.wasm-core
+  build-ffmpeg:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
       - name: Build FFMpeg
-        shell: bash
-        run: bash build-with-docker.sh install-deps ${{ matrix.script }}
-      # - uses: actions/upload-artifact@master
-      #   with:
-      #     name: ffmpeg-core
-      #     path: wasm/packages/core/dist
+        run: |
+          bash build-with-docker.sh \
+            install-deps \
+            configure-ffmpeg \
+            build-ffmpeg
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+          path: |
+            build
+            wasm/cache
+          key: ffmpeg.wasm-core
+      - uses: actions/upload-artifact@master
+        with:
+          name: ffmpeg-core
+          path: wasm/packages/core/dist
 
   # Disable macos build due to there is no ldconfig command
   # during freetype2 build.
