@@ -91,7 +91,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: ffmpeg-core
-          path: $DIST_PATH
+          path: ${{ env.DIST_PATH }}
 
   # Disable macos build due to there is no ldconfig command
   # during freetype2 build.
