@@ -43,13 +43,15 @@ jobs:
           submodules: recursive
       - name: Cache libs
         uses: actions/cache@v2
+        env:
+          GIT_HASH: $(git rev-parse --short HEAD)
         with:
           path: |
             build
             wasm/cache
-          key: ${{ env.CACHE_KEY_PREFIX }}-${{ env.GITHUB_RUN_ID }}-${{ matrix.script }}
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ env.GIT_HASH }}-${{ matrix.script }}
           restore-keys: |
-            ${{ env.CACHE_KEY_PREFIX }}-${{ env.GITHUB_RUN_ID }}-
+            ${{ env.CACHE_KEY_PREFIX }}-${{ env.GIT_HASH }}-
       - name: List cached libs
         run: ls build/lib || true
       - name: Build FFMpeg Libs
@@ -63,13 +65,15 @@ jobs:
           submodules: recursive
       - name: Cache multiple paths
         uses: actions/cache@v2
+        env:
+          GIT_HASH: $(git rev-parse --short HEAD)
         with:
           path: |
             build
             wasm/cache
-          key: ${{ env.CACHE_KEY_PREFIX }}-${{ env.GITHUB_RUN_ID }}-ffmpeg
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ env.GIT_HASH }}-ffmpeg
           restore-keys: |
-            ${{ env.CACHE_KEY_PREFIX }}-${{ env.GITHUB_RUN_ID }}-
+            ${{ env.CACHE_KEY_PREFIX }}-${{ env.GIT_HASH }}-
       - name: List cached libs
         run: ls build/lib || true
       - name: Build FFMpeg
