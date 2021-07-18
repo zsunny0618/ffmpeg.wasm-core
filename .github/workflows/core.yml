@@ -55,7 +55,7 @@ jobs:
           restore-keys: |
             ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-
       - name: List cached libs
-        run: ls build/lib || true
+        run: ls -R build || true
       - name: Build FFMpeg Libs
         run: bash build-with-docker.sh install-deps ${{ matrix.script }}
   build-ffmpeg:
@@ -81,7 +81,7 @@ jobs:
           restore-keys: |
             ${{ env.CACHE_KEY_PREFIX }}-${{ steps.get-commit-hash.outputs.hash }}-
       - name: List cached libs
-        run: ls build/lib || true
+        run: ls -R build || true
       - name: Build FFMpeg
         run: |
           bash build-with-docker.sh \
