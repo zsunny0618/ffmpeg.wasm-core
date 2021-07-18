@@ -51,7 +51,7 @@ jobs:
           restore-keys: |
             $CACHE_KEY_PREFIX-
       - name: List cached libs
-        run: ls build/lib
+        run: ls build/lib || true
       - name: Build FFMpeg Libs
         run: bash build-with-docker.sh install-deps ${{ matrix.script }}
   build-ffmpeg:
@@ -71,7 +71,7 @@ jobs:
           restore-keys: |
             $CACHE_KEY_PREFIX-
       - name: List cached libs
-        run: ls build/lib
+        run: ls build/lib || true
       - name: Build FFMpeg
         run: |
           bash build-with-docker.sh \
