@@ -54,8 +54,7 @@ ln -sf ../10bit/libx265.a libx265_main10.a
 ln -sf ../12bit/libx265.a libx265_main12.a
 emmake cmake ../.. -DCMAKE_CXX_FLAGS="$CXXFLAGS" ${FLAGS_MAIN[@]}
 emmake make clean
-emmake make install -j
-
+emmake make -j
 mv libx265.a libx265_main.a
 
 # Merge static libraries
@@ -67,7 +66,7 @@ ADDLIB libx265_main12.a
 SAVE
 END
 EOF
+emmake make install
 
-cp libx265.a $BUILD_DIR/lib
 
 cd $ROOT_DIR
