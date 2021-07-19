@@ -6,9 +6,7 @@ source $(dirname $0)/var.sh
 LIB_PATH=third_party/x264
 
 if [[ "$FFMPEG_ST" == "yes" ]]; then
-  EXTRA_CONF_FLAGS=(
-    --disable-thread
-  )
+  EXTRA_CONF_FLAGS="--disable-thread"
 fi
 
 CONF_FLAGS=(

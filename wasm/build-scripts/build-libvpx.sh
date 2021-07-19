@@ -6,9 +6,7 @@ source $(dirname $0)/var.sh
 LIB_PATH=third_party/libvpx
 
 if [[ "$FFMPEG_ST" == "yes" ]]; then
-  EXTRA_CONF_FLAGS=(
-    --disable-multithread
-  )
+  EXTRA_CONF_FLAGS="--disable-multithread"
 fi
 
 CONF_FLAGS=(
