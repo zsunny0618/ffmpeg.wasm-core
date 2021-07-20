@@ -3,10 +3,8 @@ const { CASES, TIMEOUT } = require('./config');
 
 require('events').EventEmitter.defaultMaxListeners = 64;
 
-[
-  { mode: 'mt', ...require('./utils')('mt') },
-  { mode: 'st', ...require('./utils')('st') },
-].forEach(({ mode, getCore, ffmpeg }) => {
+module.exports = (mode) => {
+  const { getCore, ffmpeg } = require('./utils')(mode);
   CASES.forEach(({
     name,
     args,
@@ -38,5 +36,4 @@ require('events').EventEmitter.defaultMaxListeners = 64;
       } catch(e) {}
     }, TIMEOUT);
   });
-})
-
+};

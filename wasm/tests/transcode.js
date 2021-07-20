@@ -5,6 +5,8 @@ if (process.argv.length > 2) {
   mode = process.argv[2];
 }
 
+require('events').EventEmitter.defaultMaxListeners = 64;
+
 const { getCore, ffmpeg } = require('./utils')(mode);
 
 (async () => {
